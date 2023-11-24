@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import {
   Component,
   EventEmitter,
@@ -8,7 +8,7 @@ import {
 } from '@angular/core';
 import { finalize, map, tap } from 'rxjs';
 import { COMMENT, DEFAULT_DATA_FILE, LINE_SEPARATOR } from '../../constants';
-import { FileLine } from '../../file-line';
+import { FileLine } from '../../models/file-line';
 import { LOCAL_STORE_KEYS } from '../../local-storage-keys';
 import { DataFile } from './data-file';
 import { CommonModule } from '@angular/common';
@@ -18,7 +18,7 @@ import { CollapsibleModule } from '../collapsible/collapsible.module';
 @Component({
   selector: 'app-data-file-selector',
   standalone: true,
-  imports: [CommonModule, CollapsibleModule],
+  imports: [CommonModule, CollapsibleModule, HttpClientModule],
   templateUrl: './data-file-selector.component.html',
   styleUrls: ['./data-file-selector.component.scss'],
 })

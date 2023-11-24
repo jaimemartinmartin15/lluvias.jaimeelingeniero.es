@@ -26,8 +26,16 @@
             "tsConfig": "tsconfig.json",
             "inlineStyleLanguage": "scss",
             "assets": [
-              "src/favicons",
-              "src/assets"
+              {
+                "glob": "**/*",
+                "input": "src/favicons",
+                "output": "/favicons/"
+              },
+              {
+                "glob": "**/*",
+                "input": "src/data",
+                "output": "/data/"
+              }
             ],
             "styles": [
               "src/styles.scss"

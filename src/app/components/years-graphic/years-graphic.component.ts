@@ -1,5 +1,5 @@
 import { Component, ElementRef, EventEmitter, Input, OnChanges, Output, SimpleChanges, ViewChild } from '@angular/core';
-import { RainData } from '../../rain-data';
+import { RainData } from '../../models/rain-data';
 import { RainDataService } from '../../rain-data.service';
 import { CommonModule } from '@angular/common';
 

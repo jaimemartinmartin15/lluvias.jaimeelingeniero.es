@@ -1,32 +1,21 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RainDataService } from './rain-data.service';
-import { SnapScrollHelper } from './snap-scroll-helper';
-import { FileLine } from './file-line';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { DataFileSelectorComponent } from './components/data-file-selector/data-file-selector.component';
 import { DaysGraphicComponent } from './components/days-graphic/days-graphic.component';
 import { MonthsGraphicComponent } from './components/months-graphic/months-graphic.component';
 import { YearsGraphicComponent } from './components/years-graphic/years-graphic.component';
-import { DataFileSelectorComponent } from './components/data-file-selector/data-file-selector.component';
-import { HttpClientModule } from '@angular/common/http';
+import { FileLine } from './models/file-line';
+import { RainDataService } from './rain-data.service';
+import { SnapScrollHelper } from './snap-scroll-helper';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [
-    CommonModule,
-    HttpClientModule,
-    DataFileSelectorComponent,
-    DaysGraphicComponent,
-    MonthsGraphicComponent,
-    YearsGraphicComponent,
-  ],
+  imports: [CommonModule, DataFileSelectorComponent, DaysGraphicComponent, MonthsGraphicComponent, YearsGraphicComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
-export class AppComponent
-  extends SnapScrollHelper
-  implements OnInit, AfterViewInit
-{
+export class AppComponent extends SnapScrollHelper implements OnInit, AfterViewInit {
   public readonly popUp = { show: false, content: '' };
 
   public isDataFileLoading: boolean = false;
