@@ -1,25 +1,27 @@
 import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 import { finalize, map, tap } from 'rxjs';
 import { COMMENT, DEFAULT_DATA_FILE, LINE_SEPARATOR } from '../../constants';
 import { LOCAL_STORE_KEYS } from '../../local-storage-keys';
 import { FileLine } from '../../models/file-line';
 import { TrashCanSvgComponent } from '../../svg/generated/trash-can.component';
-import { CollapsibleComponent } from '../collapsible/collapsible.component';
-import { CollapsibleModule } from '../collapsible/collapsible.module';
 import { DataFile } from './data-file';
 
 @Component({
   selector: 'app-data-file-selector',
   standalone: true,
-  imports: [CommonModule, CollapsibleModule, HttpClientModule, TrashCanSvgComponent],
+  imports: [CommonModule, HttpClientModule, TrashCanSvgComponent],
   templateUrl: './data-file-selector.component.html',
   styleUrls: ['./data-file-selector.component.scss'],
 })
-export class DataFileSelectorComponent implements OnInit {
-  @ViewChild(CollapsibleComponent)
-  public collapsibleComponentRef: CollapsibleComponent;
+export class DataFileSelectorComponent implements OnInit, AfterViewInit {
+  @ViewChild('collapsibleContainer')
+  public collapsibleContainer: ElementRef;
+  public isCollapsibleOpen = false;
+  private get collapsibleEl(): HTMLDivElement {
+    return this.collapsibleContainer.nativeElement;
+  }
 
   public popUp: { show: boolean; dataFile: DataFile } = {
     show: false,
@@ -45,6 +47,19 @@ export class DataFileSelectorComponent implements OnInit {
     this.selectedDataFile = JSON.parse(localStorage.getItem(LOCAL_STORE_KEYS.DEFAULT_DATA_FILE) ?? JSON.stringify(this.dataFiles[0]));
 
     this.selectDataFile(this.selectedDataFile);
+  }
+
+  public ngAfterViewInit(): void {
+    this.closeCollapsible();
+
+    const mutationObs = new MutationObserver(() => {
+      if (this.isCollapsibleOpen) {
+        // the browser will calculate the height and adapt it. Restore to absolute to animate again when closing
+        this.collapsibleEl.style.height = 'auto';
+        setTimeout(() => this.openCollapsible(), 0); //will also adapt the height to the new content
+      }
+    });
+    mutationObs.observe(this.collapsibleEl, { childList: true });
   }
 
   public addNewDataFile(event: Event) {
@@ -101,12 +116,28 @@ export class DataFileSelectorComponent implements OnInit {
         ),
         tap((fileLines) => this.loadNewDataFile.emit(fileLines)),
         tap(() => localStorage.setItem(LOCAL_STORE_KEYS.DEFAULT_DATA_FILE, JSON.stringify(this.selectedDataFile))),
-        tap(() => this.collapsibleComponentRef.onClickCloseAction()),
+        tap(() => this.closeCollapsible()),
         finalize(() => this.isLoading.emit(false))
       )
       .subscribe({
         next: () => this.error.emit(false),
         error: () => this.error.emit(true),
       });
+  }
+
+  public toggleCollapsible() {
+    this.isCollapsibleOpen ? this.closeCollapsible() : this.openCollapsible();
+  }
+
+  private openCollapsible() {
+    this.isCollapsibleOpen = true;
+    this.collapsibleEl.style.height = `${this.collapsibleEl.scrollHeight}px`;
+    this.collapsibleEl.style.overflow = 'none';
+  }
+
+  private closeCollapsible() {
+    this.isCollapsibleOpen = false;
+    this.collapsibleEl.style.height = '0px';
+    this.collapsibleEl.style.overflow = 'hidden';
   }
 }
