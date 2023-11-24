@@ -1,24 +1,19 @@
+import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import {
-  Component,
-  EventEmitter,
-  OnInit,
-  Output,
-  ViewChild,
-} from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 import { finalize, map, tap } from 'rxjs';
 import { COMMENT, DEFAULT_DATA_FILE, LINE_SEPARATOR } from '../../constants';
-import { FileLine } from '../../models/file-line';
 import { LOCAL_STORE_KEYS } from '../../local-storage-keys';
-import { DataFile } from './data-file';
-import { CommonModule } from '@angular/common';
+import { FileLine } from '../../models/file-line';
+import { TrashCanSvgComponent } from '../../svg/generated/trash-can.component';
 import { CollapsibleComponent } from '../collapsible/collapsible.component';
 import { CollapsibleModule } from '../collapsible/collapsible.module';
+import { DataFile } from './data-file';
 
 @Component({
   selector: 'app-data-file-selector',
   standalone: true,
-  imports: [CommonModule, CollapsibleModule, HttpClientModule],
+  imports: [CommonModule, CollapsibleModule, HttpClientModule, TrashCanSvgComponent],
   templateUrl: './data-file-selector.component.html',
   styleUrls: ['./data-file-selector.component.scss'],
 })
@@ -46,14 +41,8 @@ export class DataFileSelectorComponent implements OnInit {
   public constructor(private readonly http: HttpClient) {}
 
   public ngOnInit() {
-    this.dataFiles = JSON.parse(
-      localStorage.getItem(LOCAL_STORE_KEYS.DATA_FILES) ??
-        JSON.stringify([DEFAULT_DATA_FILE])
-    );
-    this.selectedDataFile = JSON.parse(
-      localStorage.getItem(LOCAL_STORE_KEYS.DEFAULT_DATA_FILE) ??
-        JSON.stringify(this.dataFiles[0])
-    );
+    this.dataFiles = JSON.parse(localStorage.getItem(LOCAL_STORE_KEYS.DATA_FILES) ?? JSON.stringify([DEFAULT_DATA_FILE]));
+    this.selectedDataFile = JSON.parse(localStorage.getItem(LOCAL_STORE_KEYS.DEFAULT_DATA_FILE) ?? JSON.stringify(this.dataFiles[0]));
 
     this.selectDataFile(this.selectedDataFile);
   }
@@ -61,9 +50,7 @@ export class DataFileSelectorComponent implements OnInit {
   public addNewDataFile(event: Event) {
     event.preventDefault();
 
-    const inputRef = (
-      event.target as HTMLButtonElement
-    ).parentElement?.querySelector('input') as HTMLInputElement;
+    const inputRef = (event.target as HTMLButtonElement).parentElement?.querySelector('input') as HTMLInputElement;
     const value = inputRef.value;
     if (!value.includes(':')) {
       inputRef.classList.add('error');
@@ -77,10 +64,7 @@ export class DataFileSelectorComponent implements OnInit {
       url: value.split(/:(.*)/s)[1].trim(),
     };
     this.dataFiles.push(newFile);
-    localStorage.setItem(
-      LOCAL_STORE_KEYS.DATA_FILES,
-      JSON.stringify(this.dataFiles)
-    );
+    localStorage.setItem(LOCAL_STORE_KEYS.DATA_FILES, JSON.stringify(this.dataFiles));
   }
 
   public deleteDataFile(dataFile: DataFile) {
@@ -89,10 +73,7 @@ export class DataFileSelectorComponent implements OnInit {
       localStorage.removeItem(LOCAL_STORE_KEYS.DATA_FILES);
       localStorage.removeItem(LOCAL_STORE_KEYS.DEFAULT_DATA_FILE);
     } else {
-      localStorage.setItem(
-        LOCAL_STORE_KEYS.DATA_FILES,
-        JSON.stringify(this.dataFiles)
-      );
+      localStorage.setItem(LOCAL_STORE_KEYS.DATA_FILES, JSON.stringify(this.dataFiles));
     }
     this.popUp.show = false;
   }
@@ -107,17 +88,9 @@ export class DataFileSelectorComponent implements OnInit {
           response
             .split(/\r?\n/) // divide the lines
             .filter((l) => !l.trim().startsWith(COMMENT) && l.trim() !== '') // Ignore commented and empty lines
-            .map((l) =>
-              l
-                .substring(
-                  0,
-                  l.indexOf(COMMENT) !== -1 ? l.indexOf(COMMENT) : l.length
-                )
-                .trim()
-            ) // Remove comments and spaces in lines that contain data
+            .map((l) => l.substring(0, l.indexOf(COMMENT) !== -1 ? l.indexOf(COMMENT) : l.length).trim()) // Remove comments and spaces in lines that contain data
             .map((l) => {
-              const [date, liters, bulletColor, popUpContent] =
-                l.split(LINE_SEPARATOR);
+              const [date, liters, bulletColor, popUpContent] = l.split(LINE_SEPARATOR);
               return {
                 date: date.trim(),
                 liters: liters.trim(),
@@ -127,12 +100,7 @@ export class DataFileSelectorComponent implements OnInit {
             })
         ),
         tap((fileLines) => this.loadNewDataFile.emit(fileLines)),
-        tap(() =>
-          localStorage.setItem(
-            LOCAL_STORE_KEYS.DEFAULT_DATA_FILE,
-            JSON.stringify(this.selectedDataFile)
-          )
-        ),
+        tap(() => localStorage.setItem(LOCAL_STORE_KEYS.DEFAULT_DATA_FILE, JSON.stringify(this.selectedDataFile))),
         tap(() => this.collapsibleComponentRef.onClickCloseAction()),
         finalize(() => this.isLoading.emit(false))
       )
