@@ -2,14 +2,15 @@
   <button (click)="showPreviousYear.emit()">&lt;</button>
 
   <span class="content" (click)="showYearPopUp()">
-    <p class="year">Meses {{year}}</p>
+    <p class="year">
+      Meses {{year}}
+      <span class="badge" [style.backgroundColor]="getBadgeColorForYear()" *ngIf="existsMessageForYear()"></span>
+    </p>
 
     <p class="liters-and-average" *ngIf="isTotalAmountOfLitersAvailableForYear()">
       <span class="liters">{{totalAmountOfLitersInYear()}} litros</span> - 
       <span class="average">&#216; {{average.liters}} litros</span>
     </p>
-
-    <span class="badge" [style.backgroundColor]="getBadgeColorForYear()" *ngIf="existsMessageForYear()"></span>
   </span>
 
   <button (click)="showNextYear.emit()">&gt;</button>
