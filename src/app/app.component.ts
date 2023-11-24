@@ -20,7 +20,6 @@ import { HttpClientModule } from '@angular/common/http';
     MonthsGraphicComponent,
     YearsGraphicComponent,
   ],
-  providers: [RainDataService],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
