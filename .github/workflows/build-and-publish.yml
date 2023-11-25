@@ -37,6 +37,7 @@ jobs:
       - name: Deploy
         run: |
           aws --version
-          aws s3 sync ./dist/lluvias \
+          aws s3 sync ./dist/lluvias/browser \
                       s3://lluvias.jaimeelingeniero.es \
                       --delete
+          aws s3 cp ./dist/lluvias/3rdpartylicenses.txt s3://lluvias.jaimeelingeniero.es
