@@ -15,5 +15,19 @@
         ]
       }
     }
+  ],
+  "dataGroups": [
+    {
+      "name": "data",
+      "urls": [
+        "/data/**.txt"
+      ],
+      "cacheConfig": {
+        "maxSize": 10,
+        "maxAge": "2d",
+        "strategy": "freshness",
+        "timeout": "5s"
+      }
+    }
   ]
 }

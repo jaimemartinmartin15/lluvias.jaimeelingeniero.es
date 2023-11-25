@@ -6,7 +6,6 @@
   "display": "standalone",
   "scope": "./",
   "start_url": "./",
-  "splash_pages": null,
   "icons": [
     {
       "src": "favicons/favicon-16x16.png",
