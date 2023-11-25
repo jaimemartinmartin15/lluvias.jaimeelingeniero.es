@@ -2,7 +2,7 @@
 
 This project is an Angular application deployed in AWS S3 under domain [lluvias.jaimeelingeniero.es](https://lluvias.jaimeelingeniero.es)
 
-<!-- TODO: add badges -->
+[![Build And Deploy](https://github.com/jaimemartinmartin15/lluvias.jaimeelingeniero.es/actions/workflows/build-and-publish.yml/badge.svg)](https://github.com/jaimemartinmartin15/lluvias.jaimeelingeniero.es/actions/workflows/build-and-publish.yml) [![Automatic Update](https://github.com/jaimemartinmartin15/lluvias.jaimeelingeniero.es/actions/workflows/automatic-update.yml/badge.svg)](https://github.com/jaimemartinmartin15/lluvias.jaimeelingeniero.es/actions/workflows/automatic-update.yml) [![Manual Update](https://github.com/jaimemartinmartin15/lluvias.jaimeelingeniero.es/actions/workflows/manual-update.yml/badge.svg)](https://github.com/jaimemartinmartin15/lluvias.jaimeelingeniero.es/actions/workflows/manual-update.yml)
 
 ## Development
 

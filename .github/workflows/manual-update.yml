@@ -23,5 +23,5 @@ jobs:
       - name: Upload file
         run: |
           aws --version
-          aws s3 cp src/sata/pluviometro-1.txt s3://lluvias.jaimeelingeniero.es/data/pluviometro-1.txt
-          aws s3 cp src/sata/pluviometro-2.txt s3://lluvias.jaimeelingeniero.es/data/pluviometro-2.txt
+          aws s3 cp src/data/pluviometro-1.txt s3://lluvias.jaimeelingeniero.es/data/pluviometro-1.txt
+          aws s3 cp src/data/pluviometro-2.txt s3://lluvias.jaimeelingeniero.es/data/pluviometro-2.txt
