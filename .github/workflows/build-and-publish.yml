@@ -39,6 +39,6 @@ jobs:
           aws --version
           aws s3 sync ./dist/lluvias/browser \
                       s3://lluvias.jaimeelingeniero.es \
-                      --delete
+                      --delete \
                       --exclude 3rdpartylicenses.txt
           aws s3 cp ./dist/lluvias/3rdpartylicenses.txt s3://lluvias.jaimeelingeniero.es
