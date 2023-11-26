@@ -6,7 +6,7 @@ import { provideServiceWorker } from '@angular/service-worker';
 export const appConfig: ApplicationConfig = {
   providers: [
     RainDataService,
-    provideRouter([]),
+    provideRouter([{ path: '**', redirectTo: '' }]),
     provideServiceWorker('ngsw-worker.js', {
       enabled: !isDevMode(),
       registrationStrategy: 'registerWhenStable:30000',
