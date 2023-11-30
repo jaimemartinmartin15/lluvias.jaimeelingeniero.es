@@ -6,6 +6,7 @@
 #
 
 # NOVIEMBRE 2023
+30/11/2023;0
 29/11/2023;0
 28/11/2023;0 # 0.2 (en total con ayer hay 0.5 y lo he vuelto a dejar en el pluviometro) 
 27/11/2023;0 # 0.3 (lo dejé en el pluviometro) 
