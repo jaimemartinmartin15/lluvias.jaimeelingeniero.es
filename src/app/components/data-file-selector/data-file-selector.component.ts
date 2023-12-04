@@ -6,12 +6,13 @@ import { COMMENT, DEFAULT_DATA_FILE, LINE_SEPARATOR } from '../../constants';
 import { LOCAL_STORE_KEYS } from '../../local-storage-keys';
 import { FileLine } from '../../models/file-line';
 import { TrashCanSvgComponent } from '../../svg/generated/trash-can.component';
+import { DataFileFormatExplanationComponent } from '../data-file-format-explanation/data-file-format-explanation.component';
 import { DataFile } from './data-file';
 
 @Component({
   selector: 'app-data-file-selector',
   standalone: true,
-  imports: [CommonModule, HttpClientModule, TrashCanSvgComponent],
+  imports: [CommonModule, HttpClientModule, TrashCanSvgComponent, DataFileFormatExplanationComponent],
   templateUrl: './data-file-selector.component.html',
   styleUrls: ['./data-file-selector.component.scss'],
 })
@@ -22,7 +23,8 @@ export class DataFileSelectorComponent implements OnInit, AfterViewInit {
   private get collapsibleEl(): HTMLDivElement {
     return this.collapsibleContainer.nativeElement;
   }
-
+  
+  public showDataFileFormatDialog = false;
   public popUp: { show: boolean; dataFile: DataFile } = {
     show: false,
     dataFile: { alias: '', url: '' },

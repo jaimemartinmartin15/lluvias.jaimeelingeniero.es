@@ -16,6 +16,8 @@
   </div>
 
   <form class="new-option" (submit)="addNewDataFile($event)">
+    <button type="button" class="info" (click)="showDataFileFormatDialog = true">i</button>
+
     <input type="text" placeholder="alias:url">
 
     <button type="submit">
@@ -38,3 +40,5 @@
     </div>
   </div>
 </div>
+
+<app-data-file-format-explanation *ngIf="showDataFileFormatDialog"></app-data-file-format-explanation>
