@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## 1.2.0
+
+Change message when no data available per month.
+
+Added new page explaining the format of the file with the rain data. Added entry point in data-file-selector.
+
+Code restructuration because of the routing.
+
 ## 1.1.1
 
 Changed average icon.

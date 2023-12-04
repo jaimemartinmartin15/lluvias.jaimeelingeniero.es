@@ -1,8 +1,8 @@
+import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, OnChanges, Output } from '@angular/core';
 import { RainData } from '../../models/rain-data';
-import { RainDataService } from '../../rain-data.service';
-import { CommonModule } from '@angular/common';
-import { MONTHS } from '../../date-utils';
+import { RainDataService } from '../../services/rain-data.service';
+import { MONTHS } from '../../utils/date';
 
 @Component({
   selector: 'app-days-graphic',

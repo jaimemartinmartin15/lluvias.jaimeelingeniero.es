@@ -58,7 +58,26 @@
     gap: 8px;
     margin-top: 10px;
 
+    .info {
+      background-color: white;
+      border: 3px solid #00a2e8;
+      border-radius: 50%;
+      text-decoration: none;
+      width: 30px;
+      height: 30px;
+      flex-shrink: 0;
+      color: #00a2e8;
+      font-style: italic;
+      font-weight: bold;
+      font-size: 1.3rem;
+      font-family: Cambria, serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
     input {
+      width: 50%; // any value to make flex-grow work properly
       flex-grow: 1;
       display: inline-block;
       padding: 5px;
@@ -74,7 +93,7 @@
       }
     }
 
-    button {
+    button[type="submit"] {
       border: none;
       background-color: transparent;
 

@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { DATE_PLACEHOLDER, DATE_SEPARATOR } from './constants';
-import { FileLine } from './models/file-line';
-import { RainData } from './models/rain-data';
-import { compareDates, getNumberOfDaysInMonth } from './date-utils';
+import { DATE_PLACEHOLDER, DATE_SEPARATOR } from '../constants/data-file';
+import { FileLine } from '../models/file-line';
+import { RainData } from '../models/rain-data';
+import { compareDates, getNumberOfDaysInMonth } from '../utils/date';
 
 @Injectable()
 export class RainDataService {
