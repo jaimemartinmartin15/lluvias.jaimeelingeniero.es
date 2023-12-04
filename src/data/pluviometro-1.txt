@@ -1,9 +1,4 @@
-# Lines starting with # or empty are ignored.
-#
-# !! Workflow 'annotate-new-rain-data.yml' will automatically add a new DAY entry in line 9
-#
-# LINE FORMAT: date ; liters ; bullet color ; pop up message
-#
+# Formato explicado en: https://lluvias.jaimeelingeniero.es/formato-fichero
 
 # NOVIEMBRE 2023
 03/12/2023;1
