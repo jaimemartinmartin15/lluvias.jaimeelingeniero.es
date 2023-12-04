@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 1.2.0
+
+Change message when no data available per month.
+
 ## 1.1.1
 
 Changed average icon.
