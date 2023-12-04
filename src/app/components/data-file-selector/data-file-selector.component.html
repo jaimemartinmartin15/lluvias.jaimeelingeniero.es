@@ -16,7 +16,7 @@
   </div>
 
   <form class="new-option" (submit)="addNewDataFile($event)">
-    <button type="button" class="info" (click)="showDataFileFormatDialog = true">i</button>
+    <a class="info" routerLink="/formato-fichero">i</a>
 
     <input type="text" placeholder="alias:url">
 
@@ -40,7 +40,3 @@
     </div>
   </div>
 </div>
-
-<app-data-file-format-explanation *ngIf="showDataFileFormatDialog" class="data-file-format-explanation-pop-up"
-  (closeDialog)="showDataFileFormatDialog = false">
-</app-data-file-format-explanation>

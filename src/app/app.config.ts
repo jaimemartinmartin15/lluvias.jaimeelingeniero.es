@@ -1,7 +1,7 @@
 import { ApplicationConfig, isDevMode } from '@angular/core';
 import { provideRouter } from '@angular/router';
 import { provideServiceWorker } from '@angular/service-worker';
-import { DataFileFormatExplanationComponent } from './pages/data-file-format-explanation/data-file-format-explanation.component';
+import { FileFormatComponent } from './pages/file-format/file-format.component';
 import { GraphicsComponent } from './pages/graphics/graphics.component';
 import { RainDataService } from './services/rain-data.service';
 
@@ -13,7 +13,7 @@ export const appConfig: ApplicationConfig = {
       {
         path: 'formato-fichero',
         children: [
-          { path: '', component: DataFileFormatExplanationComponent },
+          { path: '', component: FileFormatComponent },
           { path: '**', redirectTo: '' },
         ],
       },

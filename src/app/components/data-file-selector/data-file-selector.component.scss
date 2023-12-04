@@ -62,6 +62,7 @@
       background-color: white;
       border: 3px solid #00a2e8;
       border-radius: 50%;
+      text-decoration: none;
       width: 30px;
       height: 30px;
       flex-shrink: 0;
@@ -73,7 +74,6 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      cursor: pointer;
     }
 
     input {
@@ -148,9 +148,4 @@
       }
     }
   }
-}
-
-.data-file-format-explanation-pop-up {
-  position: fixed;
-  inset: 0;
 }

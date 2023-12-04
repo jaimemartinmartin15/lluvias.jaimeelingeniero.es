@@ -1,18 +1,18 @@
 import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { AfterViewInit, Component, ElementRef, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { finalize, map, tap } from 'rxjs';
 import { COMMENT, DEFAULT_DATA_FILE, LINE_SEPARATOR } from '../../constants/data-file';
 import { LOCAL_STORE_KEYS } from '../../constants/local-storage-keys';
 import { FileLine } from '../../models/file-line';
-import { DataFileFormatExplanationComponent } from '../../pages/data-file-format-explanation/data-file-format-explanation.component';
 import { TrashCanSvgComponent } from '../../svg/generated/trash-can.component';
 import { DataFile } from './data-file';
 
 @Component({
   selector: 'app-data-file-selector',
   standalone: true,
-  imports: [CommonModule, HttpClientModule, TrashCanSvgComponent, DataFileFormatExplanationComponent],
+  imports: [CommonModule, HttpClientModule, TrashCanSvgComponent, RouterLink],
   templateUrl: './data-file-selector.component.html',
   styleUrls: ['./data-file-selector.component.scss'],
 })
@@ -24,7 +24,6 @@ export class DataFileSelectorComponent implements OnInit, AfterViewInit {
     return this.collapsibleContainer.nativeElement;
   }
 
-  public showDataFileFormatDialog = false;
   public popUp: { show: boolean; dataFile: DataFile } = {
     show: false,
     dataFile: { alias: '', url: '' },
