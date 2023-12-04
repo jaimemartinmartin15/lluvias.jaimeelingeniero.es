@@ -1,3 +1,130 @@
-<p>
-  data-file-format-explanation works!
-</p>
+<div class="content">
+  <h1>Añadir un fichero de datos</h1>
+
+  <p>
+    Para añadir un fichero necesitas dos cosas:
+  </p>
+
+  <ol>
+    <li>
+      <strong>Un alias</strong>:
+      será el nombre por el que identifiques los datos en el menú. Puedes llamarlo como
+      quieras, pero que no contenga dos puntos (:).
+    </li>
+
+    <li>
+      <strong>Una URL</strong>:
+      el lugar donde se encuentra el fichero con los datos a descargar.
+    </li>
+  </ol>
+
+  <p>
+    Introduce el alias y la URL separados por dos puntos como se muestra en el campo cuando no hay nada escrito. Por
+    ejemplo: "mi patio:https://example.com/mi-pluviometro.txt"
+  </p>
+
+  <h1>Formato del fichero de datos</h1>
+
+  <p>
+    El fichero que se descarga es un simple fichero txt compuesto de varias lineas con los datos.
+  </p>
+
+  <p>
+    Una linea puede ser de estos tipos:
+  </p>
+
+  <ol>
+    <li>
+      <strong>Comentario</strong>: si la linea comienza con el símbolo #.
+    </li>
+
+    <li>
+      <strong>Vacía</strong>: si es una linea en blanco.
+    </li>
+
+    <li>
+      <strong>Datos</strong>: la linea contiene datos para pintar en los gráficos.
+    </li>
+  </ol>
+
+  <p>
+    Cada linea puede tener espacios en blanco o tabuladores delante o al final, pero son ignorados. En una linea todos
+    los caracteres detrás del símbolo # son comentarios y también son ignorados.
+  </p>
+
+  <h2>Formato de linea de datos</h2>
+
+  <p>
+    Una linea de datos se compone de la siguiente estructura:
+  </p>
+
+  <pre>fecha ; litros ; color css notificación ; mensaje del diálogo # comentario</pre>
+
+  <p>Existen tres posibilidades para la fecha:</p>
+
+  <ol>
+    <li>
+      dd<strong>/</strong>mm<strong>/</strong>yyyy: se especifica tanto el día, como el mes, como el año separados con
+      barras.
+    </li>
+
+    <li>
+      <strong>xx/</strong>mm<strong>/</strong>yyyy: sólo se especifica el mes y el año. El día son literalmente dos x.
+    </li>
+
+    <li>
+      <strong>xx/xx/</strong>yyyy: sólo se especifica el año. El día y el mes son literalmente dos x.
+    </li>
+  </ol>
+
+  <p>
+    El primer caso esta destinado para el gráfico por días. El segundo caso está destinado para el gráfico por meses. El
+    tercer caso está destinado para el gráfico por años. Si no se especifican datos por año, se calculan automáticamente
+    a partir de los datos por meses. Si no se especifican datos por meses, se calculan automáticamente a partir de los
+    datos por días.
+  </p>
+
+  <p>
+    Los litros es un número con la cantidad total que ha llovido para ese día, mes o año. Si no se especifican (se deja
+    el campo vacío), se supone que es para simplemente poner un diálogo. En este caso los datos para cada mes se
+    calculan a partir de los datos por día, y para el año, se calcula a partir de los datos por mes. Si se indican los
+    litros, estos serán los que aparezcan en el gráfico (sobreescribiendo posibles datos calculados a partir de días o
+    meses).
+  </p>
+
+  <p>
+    El tercer campo de la línea de datos es el color de la notificación. Este campo solo es obligatorio se se pone un
+    mensaje en el cuarto campo.
+  </p>
+
+  <p>
+    En el cuarto campo podemos especificar el texto que aparecerá dentro del diálogo.
+  </p>
+
+  <p>
+    Al final del todo, como ya se ha indicado, podemos poner un comentario que es ignorado. Es solo para información de
+    quien mantiene el fichero de datos.
+  </p>
+
+  <h1>Ejemplos:</h1>
+
+  <p>Indicar que el 4 de diciembre de 2023 ha llovido 4 litros:</p>
+  <pre>04/12/2023;4</pre>
+
+  <p>Indicar que el 4 de diciembre de 2023 ha llovido 4 litros y poner una notificación de color rojo:</p>
+  <pre>04/12/2023;4;red;Hubo una granizada.</pre>
+
+  <p>Indicar que ha llovido 50 litros en todo noviembre de 2023 y dejar un comentario:</p>
+  <pre>xx/11/2023;50 # un par de dias de vacaciones no puede medirlo</pre>
+
+  <p>Poner una notificación verde para el año 2021 (y que los datos se calculen a partir de los meses o dias):</p>
+  <pre>xx/xx/2021;;green;Año muy caluroso</pre>
+
+  <p>Poner una notificación verde para el año 2021 (sobreescribiendo los datos calculados a partir de los días y meses):
+  </p>
+  <pre>xx/xx/2021;498;green;Año muy caluroso</pre>
+</div>
+
+<button class="close-button" (click)="closeDialog.emit()">
+  Entendido
+</button>

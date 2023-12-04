@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-data-file-format-explanation',
@@ -8,4 +8,7 @@ import { Component } from '@angular/core';
   templateUrl: './data-file-format-explanation.component.html',
   styleUrls: ['./data-file-format-explanation.component.scss'],
 })
-export class DataFileFormatExplanationComponent {}
+export class DataFileFormatExplanationComponent {
+  @Output()
+  public closeDialog = new EventEmitter<void>();
+}

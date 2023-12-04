@@ -41,5 +41,6 @@
   </div>
 </div>
 
-<app-data-file-format-explanation *ngIf="showDataFileFormatDialog" class="data-file-format-explanation-pop-up">
+<app-data-file-format-explanation *ngIf="showDataFileFormatDialog" class="data-file-format-explanation-pop-up"
+  (closeDialog)="showDataFileFormatDialog = false">
 </app-data-file-format-explanation>
