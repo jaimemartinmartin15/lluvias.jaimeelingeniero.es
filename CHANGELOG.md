@@ -1,8 +1,14 @@
 # CHANGELOG
 
+## 1.1.1
+
+Changed average icon.
+
+Fix liters color in years graphic.
+
 ## 1.1.0
 
-Convert the application to PWA with new favicons
+Convert the application to PWA with new favicons.
 
 ## 1.0.0
 
