@@ -2,11 +2,11 @@ import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { AfterViewInit, Component, ElementRef, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 import { finalize, map, tap } from 'rxjs';
-import { COMMENT, DEFAULT_DATA_FILE, LINE_SEPARATOR } from '../../constants';
-import { LOCAL_STORE_KEYS } from '../../local-storage-keys';
+import { COMMENT, DEFAULT_DATA_FILE, LINE_SEPARATOR } from '../../constants/data-file';
+import { LOCAL_STORE_KEYS } from '../../constants/local-storage-keys';
 import { FileLine } from '../../models/file-line';
+import { DataFileFormatExplanationComponent } from '../../pages/data-file-format-explanation/data-file-format-explanation.component';
 import { TrashCanSvgComponent } from '../../svg/generated/trash-can.component';
-import { DataFileFormatExplanationComponent } from '../data-file-format-explanation/data-file-format-explanation.component';
 import { DataFile } from './data-file';
 
 @Component({
@@ -23,7 +23,7 @@ export class DataFileSelectorComponent implements OnInit, AfterViewInit {
   private get collapsibleEl(): HTMLDivElement {
     return this.collapsibleContainer.nativeElement;
   }
-  
+
   public showDataFileFormatDialog = false;
   public popUp: { show: boolean; dataFile: DataFile } = {
     show: false,

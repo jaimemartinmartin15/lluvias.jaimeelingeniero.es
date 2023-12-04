@@ -1,7 +1,7 @@
+import { CommonModule } from '@angular/common';
 import { Component, ElementRef, EventEmitter, Input, OnChanges, Output, SimpleChanges, ViewChild } from '@angular/core';
 import { RainData } from '../../models/rain-data';
-import { RainDataService } from '../../rain-data.service';
-import { CommonModule } from '@angular/common';
+import { RainDataService } from '../../services/rain-data.service';
 
 @Component({
   selector: 'app-years-graphic',

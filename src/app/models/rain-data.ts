@@ -1,4 +1,4 @@
-import { DATE_SEPARATOR } from '../constants';
+import { DATE_SEPARATOR } from '../constants/data-file';
 import { FileLine } from './file-line';
 
 export class RainData {
