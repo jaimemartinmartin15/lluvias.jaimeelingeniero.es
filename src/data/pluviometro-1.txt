@@ -1,6 +1,7 @@
 # Formato explicado en: https://lluvias.jaimeelingeniero.es/formato-fichero
 
 # NOVIEMBRE 2023
+05/12/2023;0
 04/12/2023;0
 03/12/2023;1
 02/12/2023;0
