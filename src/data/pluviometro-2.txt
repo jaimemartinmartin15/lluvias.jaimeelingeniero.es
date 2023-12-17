@@ -1,6 +1,7 @@
 # Formato explicado en: https://lluvias.jaimeelingeniero.es/formato-fichero
 
 # DICIEMBRE 2023
+17/12/2023;0
 16/12/2023;0
 15/12/2023;0
 14/12/2023;0
