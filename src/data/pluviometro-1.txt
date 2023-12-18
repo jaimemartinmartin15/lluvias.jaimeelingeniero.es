@@ -1,6 +1,7 @@
 # Formato explicado en: https://lluvias.jaimeelingeniero.es/formato-fichero
 
 # DICIEMBRE 2023
+18/12/2023;0
 17/12/2023;0
 #17/12/2023 # a las 23:30 había 0.5l y los tire porque helaba. Mucha niebla. 
 16/12/2023;0
