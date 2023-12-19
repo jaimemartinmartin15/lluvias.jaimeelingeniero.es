@@ -1,9 +1,8 @@
 # Formato explicado en: https://lluvias.jaimeelingeniero.es/formato-fichero
 
 # DICIEMBRE 2023
-18/12/2023;0
-17/12/2023;0
-#17/12/2023 # a las 23:30 había 0.5l y los tire porque helaba. Mucha niebla. 
+18/12/2023;0 # por la mañana había un culin (0.1) y el día 19 por la tarde igual (0.1)
+17/12/2023;0 # a las 23:30 había 0.5l y los tire porque helaba. Mucha niebla. 
 16/12/2023;0
 15/12/2023;0
 14/12/2023;0
