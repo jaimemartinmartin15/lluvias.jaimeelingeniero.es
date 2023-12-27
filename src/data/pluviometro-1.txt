@@ -1,11 +1,11 @@
 # Formato explicado en: https://lluvias.jaimeelingeniero.es/formato-fichero
 
 # DICIEMBRE 2023
-26/12/2023;0
-25/12/2023;0 # 0.3L
+26/12/2023;1;darkkhaki;Acumulado de varios días por las heladas y la niebla. 
+25/12/2023;0
 24/12/2023;0
-23/12/2023;0 # 0.1L
-22/12/2023;0 # 0.5L
+23/12/2023;0
+22/12/2023;0
 21/12/2023;0
 20/12/2023;0
 19/12/2023;3
