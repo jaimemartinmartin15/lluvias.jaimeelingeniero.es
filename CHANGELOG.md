@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 1.2.1
+
+Fix months and years graphics when rain data is 0 for all months or years.
+
 ## 1.2.0
 
 Change message when no data available per month.
