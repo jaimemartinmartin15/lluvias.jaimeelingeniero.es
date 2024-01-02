@@ -30,32 +30,20 @@ export class RainDataService {
 
   private parseFileLines(lines: FileLine[]) {
     const data = lines.map((l) => new RainData(l));
-    this.rainDataPerDay = data.filter(
-      (d) => !Number.isNaN(d.day) && !Number.isNaN(d.month)
-    );
-    this.rainDataPerMonth = data.filter(
-      (d) => Number.isNaN(d.day) && !Number.isNaN(d.month)
-    );
-    this.rainDataPerYear = data.filter(
-      (d) => Number.isNaN(d.day) && Number.isNaN(d.month)
-    );
+    this.rainDataPerDay = data.filter((d) => !Number.isNaN(d.day) && !Number.isNaN(d.month));
+    this.rainDataPerMonth = data.filter((d) => Number.isNaN(d.day) && !Number.isNaN(d.month));
+    this.rainDataPerYear = data.filter((d) => Number.isNaN(d.day) && Number.isNaN(d.month));
   }
 
   private calculateDerivedMonthsFromDays() {
     const SEPARATOR = '-';
-    const existingMonthsFromDays = [
-      ...new Set(
-        this.rainDataPerDay.map((d) => `${d.month}${SEPARATOR}${d.year}`)
-      ),
-    ].map((l) => ({
+    const existingMonthsFromDays = [...new Set(this.rainDataPerDay.map((d) => `${d.month}${SEPARATOR}${d.year}`))].map((l) => ({
       month: +l.split(SEPARATOR)[0],
       year: +l.split(SEPARATOR)[1],
     }));
 
     existingMonthsFromDays.forEach(({ month, year }) => {
-      const existingMonthFromFile = this.rainDataPerMonth.find(
-        (m) => m.month === month && m.year === year
-      );
+      const existingMonthFromFile = this.rainDataPerMonth.find((m) => m.month === month && m.year === year);
       const litersInMonth = this.rainDataPerDay
         .filter((d) => d.month === month && d.year === year)
         .map((d) => d.liters)
@@ -63,9 +51,7 @@ export class RainDataService {
       if (existingMonthFromFile === undefined) {
         this.rainDataPerMonth.push(
           new RainData({
-            date: `${DATE_PLACEHOLDER}${DATE_SEPARATOR}${
-              month + 1
-            }${DATE_SEPARATOR}${year}`,
+            date: `${DATE_PLACEHOLDER}${DATE_SEPARATOR}${month + 1}${DATE_SEPARATOR}${year}`,
             liters: `${litersInMonth}`,
             bulletColor: '',
             popUpContent: '',
@@ -78,14 +64,10 @@ export class RainDataService {
   }
 
   private calculateDerivedYearsFromMonths() {
-    const existingYearsFromMonths = [
-      ...new Set(this.rainDataPerMonth.map((d) => d.year)),
-    ];
+    const existingYearsFromMonths = [...new Set(this.rainDataPerMonth.map((d) => d.year))];
 
     existingYearsFromMonths.forEach((year) => {
-      const existingYearFromFile = this.rainDataPerYear.find(
-        (y) => y.year === year
-      );
+      const existingYearFromFile = this.rainDataPerYear.find((y) => y.year === year);
       const litersInYear = this.rainDataPerMonth
         .filter((d) => d.year === year)
         .map((d) => d.liters)
@@ -120,36 +102,25 @@ export class RainDataService {
     // pick months year by year and calculate the offset of each month
     const years = new Set<number>(this.rainDataPerMonth.map((m) => m.year));
     years.forEach((year) => {
-      const monthsOfTheYear = this.rainDataPerMonth.filter(
-        (m) => m.year === year
-      );
-      const maxLiters = Math.max(...monthsOfTheYear.map((m) => m.liters));
-      // 0 L -> 258 (svg x axis height aprox)    MAX L -> 0
-      monthsOfTheYear.forEach(
-        (m) => (m.svgOffset = 258 - 258 * (m.liters / maxLiters))
-      );
+      const monthsOfTheYear = this.rainDataPerMonth.filter((m) => m.year === year);
+      const maxLiters = Math.max(1, ...monthsOfTheYear.map((m) => m.liters));
+      // 0 L -> 258 (svg y axis height aprox)    MAX L -> 0
+      monthsOfTheYear.forEach((m) => (m.svgOffset = 258 - 258 * (m.liters / maxLiters)));
     });
   }
 
   public calculateSvgOffsetsForYears() {
-    const maxRain = Math.max(...this.rainDataPerYear.map((h) => h.liters));
-    this.rainDataPerYear.forEach((h) => {
-      // min rain -> offset 258    max rain -> offset 0
-      h.svgOffset = 258 - (258 * h.liters) / maxRain;
-    });
+    const maxRain = Math.max(1, ...this.rainDataPerYear.map((h) => h.liters));
+    // min rain -> offset 258    max rain -> offset 0
+    this.rainDataPerYear.forEach((y) => (y.svgOffset = 258 - (258 * y.liters) / maxRain));
   }
 
   public getRainDataPerDays(month: number, year: number): RainData[] {
-    const requestedDays = this.rainDataPerDay.filter(
-      (d) => d.month === month && d.year === year
-    );
+    const requestedDays = this.rainDataPerDay.filter((d) => d.month === month && d.year === year);
     const totalNumberOfDaysInMonth = getNumberOfDaysInMonth(month, year);
 
     // add missing days of the month if there is at least one day for the month
-    if (
-      requestedDays.length > 0 &&
-      requestedDays.length < totalNumberOfDaysInMonth
-    ) {
+    if (requestedDays.length > 0 && requestedDays.length < totalNumberOfDaysInMonth) {
       for (let day = 1; day <= totalNumberOfDaysInMonth; day++) {
         if (requestedDays.find((d) => d.day === day) === undefined) {
           const mockData = new RainData({
@@ -168,18 +139,14 @@ export class RainDataService {
   }
 
   public getRainDataPerMonths(year: number): RainData[] {
-    const requestedMonths = this.rainDataPerMonth.filter(
-      (m) => m.year === year
-    );
+    const requestedMonths = this.rainDataPerMonth.filter((m) => m.year === year);
 
     // add missing months if there is at least one month for the year
     if (requestedMonths.length > 0 && requestedMonths.length < 12) {
       for (let month = 0; month < 12; month++) {
         if (requestedMonths.find((m) => m.month === month) === undefined) {
           const mockData = new RainData({
-            date: `${DATE_PLACEHOLDER}${DATE_SEPARATOR}${
-              month + 1
-            }${DATE_SEPARATOR}${year}`,
+            date: `${DATE_PLACEHOLDER}${DATE_SEPARATOR}${month + 1}${DATE_SEPARATOR}${year}`,
             liters: '',
             bulletColor: '',
             popUpContent: '',
