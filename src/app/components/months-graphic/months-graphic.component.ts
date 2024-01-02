@@ -48,7 +48,7 @@ export class MonthsGraphicComponent implements OnChanges {
     if (this.rainPerMonths.length > 0) {
       const litersOfMonthsWithRain = this.rainPerMonths.filter((m) => m.hasLiters).map((m) => m.liters);
       const averageOfRain = litersOfMonthsWithRain.reduce((a, b) => a + b, 0) / litersOfMonthsWithRain.length;
-      const maxAmountOfRainInMonth = Math.max(...litersOfMonthsWithRain);
+      const maxAmountOfRainInMonth = Math.max(1, ...litersOfMonthsWithRain);
       this.average = {
         // maxAmountOfRainInMonth -> 0   0 -> 260 (as in svg y axis)
         svg: 260 - (260 / maxAmountOfRainInMonth) * averageOfRain,
