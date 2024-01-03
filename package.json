@@ -5,7 +5,8 @@
     "start": "ng serve -o",
     "start:public": "ng serve -o --host 0.0.0.0 --port 80",
     "icons": "ng run lluvias:icons",
-    "build": "ng build"
+    "build": "ng build",
+    "test:e2e": "ng e2e"
   },
   "private": true,
   "dependencies": {
@@ -22,6 +23,9 @@
     "@angular-devkit/build-angular": "^17.0.3",
     "@angular/cli": "^17.0.3",
     "@jaimemartinmartin15/jei-devkit-angular-builders": "^1.0.0",
+    "@puppeteer/ng-schematics": "^0.5.5",
+    "jasmine": "^5.1.0",
+    "puppeteer": "^21.6.1",
     "typescript": "~5.2.2"
   }
 }
