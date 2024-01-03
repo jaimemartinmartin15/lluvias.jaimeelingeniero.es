@@ -5,5 +5,7 @@ describe('Lluvias app', function () {
 
   it('should TODO', async function () {
     const { page } = getBrowserState();
+
+    await page.screenshot({path: 'screenshot'})
   });
 });

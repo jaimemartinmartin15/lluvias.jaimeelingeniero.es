@@ -24,6 +24,7 @@
     "@angular/cli": "^17.0.3",
     "@jaimemartinmartin15/jei-devkit-angular-builders": "^1.0.0",
     "@puppeteer/ng-schematics": "^0.5.5",
+    "@types/jasmine": "~5.1.0",
     "jasmine": "^5.1.0",
     "puppeteer": "^21.6.1",
     "typescript": "~5.2.2"
