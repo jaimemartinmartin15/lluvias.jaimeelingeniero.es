@@ -5,6 +5,7 @@
 03/01/2024;0
 02/01/2024;7
 01/01/2024;0
+xx/01/2024;;pink;A partir de este año se usa pluviometro nuevo.
 
 # DICIEMBRE 2023
 31/12/2023;0
