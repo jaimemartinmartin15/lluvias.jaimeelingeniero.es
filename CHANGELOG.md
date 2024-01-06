@@ -1,5 +1,7 @@
 # CHANGELOG
 
+Updated file format page to indicate how rain average is calculated.
+
 Fix selector of graphics component.
 
 ## 1.2.1
