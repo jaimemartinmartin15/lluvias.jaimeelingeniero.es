@@ -1,4 +1,4 @@
-<div (click)="toggleCollapsible()" class="selected-data">
+<div (click)="toggleCollapsible()" class="selected-data" data-test-id="select-data-collapsible">
   <span>Datos de <strong>{{this.selectedDataFile.alias}}</strong></span>
   <svg viewBox="0 0 10 10" [ngClass]="{arrow: true, 'arrow--rotated': isCollapsibleOpen}">
     <polygon points="2,4 8,4 5,7" />
@@ -9,18 +9,18 @@
   <hr>
 
   <div class="option" *ngFor="let file of dataFiles; let i = index">
-    <span class="alias" (click)="selectDataFile(file)"> {{file.alias}} </span>
+    <span class="alias" (click)="selectDataFile(file)" [attr.data-test-id]="'alias-option-'+i"> {{file.alias}} </span>
 
-    <svg viewBox="0 0 100 100" appTrashCanSvg class="trash-can-svg"
+    <svg viewBox="0 0 100 100" appTrashCanSvg class="trash-can-svg" [attr.data-test-id]="'delete-data-file-option-'+i"
       (click)="popUp.show=true; popUp.dataFile = file;"></svg>
   </div>
 
   <form class="new-option" (submit)="addNewDataFile($event)">
-    <a class="info" routerLink="/formato-fichero">i</a>
+    <a class="info" routerLink="/formato-fichero" data-test-id="link-file-format">i</a>
 
-    <input type="text" placeholder="alias:url">
+    <input type="text" placeholder="alias:url" data-test-id="new-data-file-input">
 
-    <button type="submit">
+    <button type="submit" data-test-id="new-data-file-submit">
       <svg viewBox="0 0 100 100" class="arrow">
         <polygon points="23,15 90,50 23,85 45,50" fill="white" />
       </svg>
@@ -35,8 +35,12 @@
     </p>
 
     <div class="buttons-wrapper">
-      <button class="keep" (click)="popUp.show = false">Mantener</button>
-      <button class="delete" (click)="deleteDataFile(popUp.dataFile)">Eliminar</button>
+      <button class="keep" (click)="popUp.show = false" data-test-id="keep-file-button">
+        Mantener
+      </button>
+      <button class="delete" (click)="deleteDataFile(popUp.dataFile)" data-test-id="delete-file-button">
+        Eliminar
+      </button>
     </div>
   </div>
 </div>

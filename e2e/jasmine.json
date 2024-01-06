@@ -8,7 +8,7 @@
   ],
   "env": {
     "failSpecWithNoExpectations": true,
-    "stopSpecOnExpectationFailure": false,
+    "stopSpecOnExpectationFailure": true,
     "random": true
   }
 }
