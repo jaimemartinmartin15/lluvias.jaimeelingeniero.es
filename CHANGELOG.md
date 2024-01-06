@@ -1,5 +1,7 @@
 # CHANGELOG
 
+Fix selector of graphics component.
+
 ## 1.2.1
 
 Fix months and years graphics when rain data is 0 for all months or years.
