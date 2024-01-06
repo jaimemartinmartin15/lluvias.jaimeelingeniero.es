@@ -30,7 +30,7 @@ xx/xx/2021;0
  * purpose: show notifications
  */
 const pluviometro4txt = `
-12/01/2024;;red;Notificación 1 de enero de 2024
+12/01/2024;;red;Notificación 12 de enero de 2024
 xx/01/2024;;green;Notificación mes de enero de 2024
 xx/xx/2024;;blue;Notificación del año 2024
 `;
@@ -41,8 +41,8 @@ xx/xx/2024;;blue;Notificación del año 2024
 const pluviometro5txt = `
 # AÑO 2025 (no calculated based on days or months)
 xx/xx/2025;397
-xx/01/2025;32
-01/01/2025;8
+xx/03/2025;32
+01/03/2025;8
 
 # MESES 2024
 xx/08/2024;2

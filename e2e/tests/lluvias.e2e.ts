@@ -8,6 +8,7 @@ import {
   getBrowserState,
   openDataFileSelector,
   selectDataFile,
+  setMonthAndYear,
   setupBrowserHooks,
   takeScreenshot,
   verifyLocalStorage,
@@ -22,6 +23,8 @@ describe('Lluvias app', function () {
 
   it('should be usable and display well', async function () {
     const { page } = getBrowserState();
+
+    await setMonthAndYear(1, 2024);
 
     await verifyUrl('/');
 
@@ -80,6 +83,14 @@ describe('Lluvias app', function () {
     await addNewDataFile('Huerta de Juan', 'data/pluviometro-5.txt');
     await selectDataFile(4, 'Huerta de Juan', 'data/pluviometro-5.txt');
     await takeScreenshot(`${screenshotIndex++}.display-pluviometro-5`);
+
+    // check other year of pluviometro-5.txt
+    // for technical reasons is necessary to reload the file
+    // buttons does not work properly (scroll does not work properly)
+    await openDataFileSelector();
+    await setMonthAndYear(3, 2025);
+    await selectDataFile(4, 'Huerta de Juan', 'data/pluviometro-5.txt');
+    await takeScreenshot(`${screenshotIndex++}.display-pluviometro-5-2025`);
 
     // delete data file and confirm
     await openDataFileSelector();

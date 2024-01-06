@@ -113,6 +113,21 @@ export async function selectDataFile(index: number, alias: string, url: string) 
   await verifyLocalStorage('pagesWeather-defaultDataFile', `{"alias":"${alias}","url":"${url}"}`);
 }
 
+export async function setMonthAndYear(month: number, year: number) {
+  await page.evaluate(
+    (month, year) => {
+      Date.prototype.getFullYear = function () {
+        return year;
+      };
+      Date.prototype.getMonth = function () {
+        return month - 1;
+      };
+    },
+    month,
+    year
+  );
+}
+
 export async function showPrevMonth() {
   await page.locator(SELECTOR('btn-show-prev-month')).click();
   await aTimeout(300); // wait to scroll?
