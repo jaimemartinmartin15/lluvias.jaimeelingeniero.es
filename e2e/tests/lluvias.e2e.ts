@@ -107,11 +107,9 @@ describe('Lluvias app', function () {
     // error loading file
     await addNewDataFile('No existe', 'data/no-existe.txt');
     await page.locator(SELECTOR(`alias-option-4`)).click();
-    await aTimeout(400); // wait to load the file
-    await takeScreenshot(`${screenshotIndex++}.error-loading-data-file (1)`);
+    await takeScreenshot(`${screenshotIndex++}.error-loading-data-file-select-not-collapsed`);
     await verifyLocalStorageNotContains('pagesWeather-defaultDataFile', 'No existe');
     await openDataFileSelector(); // close to take better screenshot
-    await aTimeout(100);
-    await takeScreenshot(`${screenshotIndex++}.error-loading-data-file (2)`);
-  }, 15000);
+    await takeScreenshot(`${screenshotIndex++}.error-loading-data-file-select-collapsed`);
+  }, 30000);
 });

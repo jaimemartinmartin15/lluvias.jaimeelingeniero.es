@@ -51,7 +51,8 @@ export function getBrowserState(): {
 export const SELECTOR = (dataTestId: string) => `[data-test-id="${dataTestId}"]`;
 
 export async function takeScreenshot(fileName: string) {
-  await page.screenshot({ path: `./e2e/reference-screenshots/${fileName}.png` });
+  await aTimeout(700);
+  await page.screenshot({ path: `./e2e/screenshots/${fileName}.png` });
 }
 
 export async function verifyUrl(pathname: string) {
@@ -91,6 +92,7 @@ export async function addNewDataFile(alias: string, url: string) {
 
 export async function deleteDataFile(index: number) {
   await page.locator(SELECTOR(`delete-data-file-option-${index}`)).click();
+  await aTimeout(100);
 }
 
 export async function confirmDeleteDataFile(alias: string, url: string) {
@@ -109,7 +111,7 @@ export async function selectDataFile(index: number, alias: string, url: string) 
   expect(value).toContain(alias);
 
   await page.locator(SELECTOR(`alias-option-${index}`)).click();
-  await aTimeout(400); // wait to load the file
+  await aTimeout(500); // wait to load the file
   await verifyLocalStorage('pagesWeather-defaultDataFile', `{"alias":"${alias}","url":"${url}"}`);
 }
 
