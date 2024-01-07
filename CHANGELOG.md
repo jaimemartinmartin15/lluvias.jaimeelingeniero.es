@@ -1,5 +1,11 @@
 # CHANGELOG
 
+Added e2e tests using puppeteer.
+
+Updated file format page to indicate how rain average is calculated.
+
+Fix selector of graphics component.
+
 ## 1.2.1
 
 Fix months and years graphics when rain data is 0 for all months or years.

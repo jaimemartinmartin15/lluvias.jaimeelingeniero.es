@@ -1,7 +1,7 @@
 <div class="header">
-  <button (click)="showPreviousYear.emit()">&lt;</button>
+  <button (click)="showPreviousYear.emit()" data-test-id="btn-show-prev-year">&lt;</button>
 
-  <span class="content" (click)="showYearPopUp()">
+  <span class="content" (click)="showYearPopUp()" [attr.data-test-id]="'year-'+year+'-notification'">
     <p class="year">
       Meses {{year}}
       <span class="badge" [style.backgroundColor]="getBadgeColorForYear()" *ngIf="existsMessageForYear()"></span>
@@ -13,7 +13,7 @@
     </p>
   </span>
 
-  <button (click)="showNextYear.emit()">&gt;</button>
+  <button (click)="showNextYear.emit()" data-test-id="btn-show-next-year">&gt;</button>
 </div>
 
 <svg viewBox="0 0 400 300" *ngIf="!error && !loading && rainPerMonths.length > 0">

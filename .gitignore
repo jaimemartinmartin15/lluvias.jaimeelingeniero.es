@@ -43,3 +43,7 @@ Thumbs.db
 
 # Angular generate-icons builder
 src/app/svg/generated/
+
+# e2e tests
+e2e/build/
+e2e/screenshots/*.png

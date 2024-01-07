@@ -9,7 +9,7 @@ import { RainDataService } from '../../services/rain-data.service';
 import { SnapScrollHelper } from './snap-scroll-helper';
 
 @Component({
-  selector: 'app-root',
+  selector: 'app-graphics-component',
   standalone: true,
   imports: [CommonModule, DataFileSelectorComponent, DaysGraphicComponent, MonthsGraphicComponent, YearsGraphicComponent],
   templateUrl: './graphics.component.html',

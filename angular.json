@@ -23,7 +23,7 @@
             "polyfills": [
               "zone.js"
             ],
-            "tsConfig": "tsconfig.json",
+            "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
               "src/manifest.webmanifest",
@@ -84,6 +84,18 @@
           "builder": "@jaimemartinmartin15/jei-devkit-angular-builders:generate-icons",
           "options": {
             "configFile": "src/app/svg/svg.json"
+          }
+        },
+        "e2e": {
+          "builder": "@puppeteer/ng-schematics:puppeteer",
+          "options": {
+            "devServerTarget": "lluvias:serve",
+            "testRunner": "jasmine"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "lluvias:serve:production"
+            }
           }
         }
       }
