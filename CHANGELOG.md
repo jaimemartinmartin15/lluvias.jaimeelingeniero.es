@@ -1,5 +1,7 @@
 # CHANGELOG
 
+## 1.2.2
+
 Added e2e tests using puppeteer.
 
 Updated file format page to indicate how rain average is calculated.
