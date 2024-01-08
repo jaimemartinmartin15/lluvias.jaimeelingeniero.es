@@ -14,7 +14,7 @@ while read linea; do
 
   # compare the hashes
   if [ "$calculatedHash" != "$expectedHash" ]; then
-    echo "Hash for path "$expectedPath" does not match"
+    echo "Hash "$calculatedHash" for path "$expectedPath" does not match. Expected "$expectedHash
     exit 1
   fi
 done < "$hashestxt"
