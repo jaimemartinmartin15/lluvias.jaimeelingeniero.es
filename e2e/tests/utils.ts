@@ -52,7 +52,7 @@ export const SELECTOR = (dataTestId: string) => `[data-test-id="${dataTestId}"]`
 
 export async function takeScreenshot(fileName: string) {
   await aTimeout(700);
-  await page.screenshot({ path: `./e2e/screenshots/${fileName}.png` });
+  await page.screenshot({ path: `./e2e/screenshots/e2e-results/${fileName}.png` });
 }
 
 export async function verifyUrl(pathname: string) {
