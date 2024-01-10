@@ -32,10 +32,14 @@ fs.readdirSync(E2E_RESULTS_IMAGES_PATH(""))
 
           if (difference > width * height * THRESHOLD_IMAGE) {
             similar = false;
-            allImagesSimilar = 1;
+            allImagesSimilar++;
             break;
           }
         }
+      }
+
+      if (!similar) {
+        break;
       }
     }
 
