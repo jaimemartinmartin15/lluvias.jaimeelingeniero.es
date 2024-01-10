@@ -46,4 +46,4 @@ src/app/svg/generated/
 
 # e2e tests
 e2e/build/
-e2e/screenshots/e2e-results/*.png
+# e2e/screenshots/e2e-results/*.png # TODO uncomment

@@ -31,6 +31,11 @@ jobs:
         run: |
           npm run test:e2e
           node ./scripts/compare-images.js
+          # TODO remove following lines
+          git config --global user.name 'Github Action'
+          git config --global user.email 'jaimemartinmartin15@users.noreply.github.com'
+          git commit -am "Images e2e tests in github actions"
+          git push
       # - name: Set AWS credentials
       #   uses: aws-actions/configure-aws-credentials@v4
       #   with:

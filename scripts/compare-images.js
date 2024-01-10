@@ -5,7 +5,9 @@ const ORIGINAL_IMAGES_PATH = (fileName) => `e2e/screenshots/originals/${fileName
 const E2E_RESULTS_IMAGES_PATH = (fileName) => `e2e/screenshots/e2e-results/${fileName}`;
 
 const PIXEL_THRESHOLD = 25; // difference of color in pixels to consider them different
-const THRESHOLD_IMAGE = 0.05; // percentage of different pixels to consider the image different
+const THRESHOLD_IMAGE = 0.08; // percentage of different pixels to consider the image different
+
+let allImagesSimilar = 0;
 
 fs.readdirSync(E2E_RESULTS_IMAGES_PATH(""))
   .filter((f) => f.endsWith(".png"))
@@ -20,7 +22,7 @@ fs.readdirSync(E2E_RESULTS_IMAGES_PATH(""))
     let similar = true;
     for (let y = 0; y < height; y++) {
       for (let x = 0; x < width; x++) {
-        const idx = (width * y + x) << 2;
+        const idx = (width * y + x) << 2; //each pixel is 4 bytes
 
         const average1 = (img1.data[idx] + img1.data[idx + 1] + img1.data[idx + 2]) / 3;
         const average2 = (img2.data[idx] + img2.data[idx + 1] + img2.data[idx + 2]) / 3;
@@ -28,8 +30,9 @@ fs.readdirSync(E2E_RESULTS_IMAGES_PATH(""))
         if (Math.abs(average1 - average2) > PIXEL_THRESHOLD) {
           difference++;
 
-          if (difference > img1.data.length * THRESHOLD_IMAGE) {
+          if (difference > width * height * THRESHOLD_IMAGE) {
             similar = false;
+            allImagesSimilar = 1;
             break;
           }
         }
@@ -38,3 +41,5 @@ fs.readdirSync(E2E_RESULTS_IMAGES_PATH(""))
 
     console.log(`Resultado similar: ${similar}. Diferencia pixels: ${difference}. Fichero: ${file}`);
   });
+
+process.exit(allImagesSimilar);
