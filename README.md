@@ -40,15 +40,9 @@ To start the e2e tests run:
 npm run test:e2e
 ```
 
-The tests have some `expect` but they also generate [screenshots](./e2e/screenshots/) that are compared calculating their [hashes](./e2e/hashes.txt).
+The tests have some `expect` but they also generate [screenshots](./e2e/screenshots/e2e-results) that are compared to [originals](./e2e/screenshots/originals).
 
-If you make any changes that impact how the application looks, e2e tests will start failing. After reviewing and confirming that the new screenshots are correct, run following command to update the hash values:
-
-```text
-md5sum e2e/screenshots/*.png > e2e/hashes.txt
-```
-
-Then review the changes and commit. Images are compared using the script [compare-images.sh](./scripts/compare-images.sh).
+If you make any changes that impact how the application looks, e2e tests might start failing. After reviewing and confirming that the new screenshots are correct, move them to originals folder and commit them.
 
 ## Deploy
 
@@ -73,9 +67,3 @@ After manually changing any [data file](./src/data/) and pushing it to the remot
 ### build-and-publish.yml
 
 Builds and deploys the application to the server.
-
-## Scripts
-
-## compare-images.sh
-
-This script is responsible for generating MD5 hashes corresponding to the screenshots captured during the execution of e2e tests. It then compares these calculated hashes with the expected values to ensure alignment between the actual test results and the anticipated visual outcomes.
