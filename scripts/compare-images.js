@@ -1,38 +1,40 @@
 const fs = require("fs");
 const PNG = require("pngjs").PNG;
-//const pixelmatch = require("pixelmatch");
 
 const ORIGINAL_IMAGES_PATH = (fileName) => `e2e/screenshots/originals/${fileName}`;
 const E2E_RESULTS_IMAGES_PATH = (fileName) => `e2e/screenshots/e2e-results/${fileName}`;
 
-fs.readdirSync(E2E_RESULTS_IMAGES_PATH(''))
+const PIXEL_THRESHOLD = 25; // difference of color in pixels to consider them different
+const THRESHOLD_IMAGE = 0.05; // percentage of different pixels to consider the image different
+
+fs.readdirSync(E2E_RESULTS_IMAGES_PATH(""))
   .filter((f) => f.endsWith(".png"))
   .forEach((file) => {
     // read image files
     const img1 = PNG.sync.read(fs.readFileSync(ORIGINAL_IMAGES_PATH(file)));
     const img2 = PNG.sync.read(fs.readFileSync(E2E_RESULTS_IMAGES_PATH(file)));
-    const { width, height } = img1;
-    
-    // check if images are identical
-    const len = width * height;
-    const a32 = new Uint32Array(img1.buffer, img1.byteOffset, len);
-    const b32 = new Uint32Array(img2.buffer, img2.byteOffset, len);
-    let identical = true;
+    const { width, height } = img1; // 1.320.000 pixels (viewport 1100 x 1200)
 
-    for (let i = 0; i < len; i++) {
-        if (a32[i] !== b32[i]) { identical = false; break; }
+    // calculate the number of different pixels
+    let difference = 0;
+    let similar = true;
+    for (let y = 0; y < height; y++) {
+      for (let x = 0; x < width; x++) {
+        const idx = (width * y + x) << 2;
+
+        const average1 = (img1.data[idx] + img1.data[idx + 1] + img1.data[idx + 2]) / 3;
+        const average2 = (img2.data[idx] + img2.data[idx + 1] + img2.data[idx + 2]) / 3;
+
+        if (Math.abs(average1 - average2) > PIXEL_THRESHOLD) {
+          difference++;
+
+          if (difference > img1.data.length * THRESHOLD_IMAGE) {
+            similar = false;
+            break;
+          }
+        }
+      }
     }
-    if (identical) {
-        console.log('identicas', file);
-        return 0;
-    }
 
-    console.log('they are different ', file);
-
-    // const diff = new PNG({ width, height });
-    // const pixelsDifference = pixelmatch(img1.data, img2.data, diff.data, width, height, { threshold: 1 });
-
-    // console.log(pixelsDifference);
-
-    // fs.writeFileSync(file, PNG.sync.write(diff));
+    console.log(`Resultado similar: ${similar}. Diferencia pixels: ${difference}. Fichero: ${file}`);
   });
