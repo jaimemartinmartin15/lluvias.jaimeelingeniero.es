@@ -18,6 +18,9 @@
 01/01/2024;0
 xx/01/2024;;pink;A partir de este año se usa pluviometro nuevo.
 
+# AÑO 2023
+xx/xx/2023;;orange;Cosecha de regular a buena.
+
 # DICIEMBRE 2023
 31/12/2023;0
 30/12/2023;0
