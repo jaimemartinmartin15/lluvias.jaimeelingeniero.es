@@ -1,7 +1,6 @@
 # Formato explicado en: https://lluvias.jaimeelingeniero.es/formato-fichero
 
 # ENERO 2024
-19/01/2024;0
 19/01/2024;28;red;Por la mañana llovió bastante y por la tarde nevó. El pluviómetro se taponó y desbordó de nieve y tuve que ponerle al lado de la estufa para que se derritiera. # 28.5 L
 18/01/2024;14
 17/01/2024;0
