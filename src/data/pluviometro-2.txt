@@ -1,6 +1,7 @@
 # Formato explicado en: https://lluvias.jaimeelingeniero.es/formato-fichero
 
 # ENERO 2024
+22/01/2024;0
 21/01/2024;0
 20/01/2024;0
 19/01/2024;25;red;Lluvia de por la mañana y nieve de por la tarde.
