@@ -1,6 +1,7 @@
 # Formato explicado en: https://lluvias.jaimeelingeniero.es/formato-fichero
 
 # ENERO 2024
+28/02/2024;0
 27/02/2024;0
 26/02/2024;2
 25/02/2024;4
