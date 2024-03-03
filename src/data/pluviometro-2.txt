@@ -1,7 +1,7 @@
 # Formato explicado en: https://lluvias.jaimeelingeniero.es/formato-fichero
 
 # ENERO 2024
-02/03/2024;0
+02/03/2024;12.5;skyblue;Este día nevó.
 01/03/2024;0
 29/02/2024;0
 28/02/2024;0
