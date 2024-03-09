@@ -1,6 +1,7 @@
 # Formato explicado en: https://lluvias.jaimeelingeniero.es/formato-fichero
 
 # ENERO 2024
+09/03/2024;0
 08/03/2024;7;cyan;Lluvia de dos días.
 07/03/2024;0
 06/03/2024;0
