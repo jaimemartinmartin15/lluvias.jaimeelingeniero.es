@@ -1,7 +1,7 @@
 # Formato explicado en: https://lluvias.jaimeelingeniero.es/formato-fichero
 
 # MARZO 2024
-31/03/2024;0
+31/03/2024;2 # 2.5 L
 30/03/2024;10
 29/03/2024;3
 28/03/2024;10
