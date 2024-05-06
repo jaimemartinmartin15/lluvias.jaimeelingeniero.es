@@ -109,10 +109,18 @@ export class RainDataService {
     });
   }
 
-  public calculateSvgOffsetsForYears() {
+  private calculateSvgOffsetsForYears() {
     const maxRain = Math.max(1, ...this.rainDataPerYear.map((h) => h.liters));
     // min rain -> offset 258    max rain -> offset 0
     this.rainDataPerYear.forEach((y) => (y.svgOffset = 258 - (258 * y.liters) / maxRain));
+  }
+
+  public getNumberOfDaysWithoutRain(): number {
+    // take the number of days without rain since the last annotated day (it might not be today!)
+    return [...this.rainDataPerDay]
+      .sort(compareDates)
+      .reverse()
+      .findIndex((data) => data.liters > 0);
   }
 
   public getRainDataPerDays(month: number, year: number): RainData[] {

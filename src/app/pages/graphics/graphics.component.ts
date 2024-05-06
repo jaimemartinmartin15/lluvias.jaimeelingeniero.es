@@ -32,6 +32,8 @@ export class GraphicsComponent extends SnapScrollHelper implements OnInit, After
   public selectedYear = new Date().getFullYear();
   public selectedMonth = new Date().getMonth();
 
+  public daysWithoutRain: number = 0;
+
   public constructor(public readonly rainDataService: RainDataService) {
     super();
   }
@@ -53,6 +55,8 @@ export class GraphicsComponent extends SnapScrollHelper implements OnInit, After
 
   public onLoadDataFile(fileLines: FileLine[]) {
     this.rainDataService.setData(fileLines);
+
+    this.daysWithoutRain = this.rainDataService.getNumberOfDaysWithoutRain();
 
     // select current month and year
     this.selectedYear = new Date().getFullYear();

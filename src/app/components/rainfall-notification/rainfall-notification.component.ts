@@ -1,6 +1,5 @@
 import { CommonModule } from '@angular/common';
 import { Component, HostBinding, Input } from '@angular/core';
-import { RainDataService } from '../../services/rain-data.service';
 
 interface GradientColor {
   percentage: number;
@@ -24,6 +23,7 @@ export class RainfallNotificationComponent {
   @Input()
   public selectedYear: number;
 
+  @Input()
   public daysWithoutRain = 0;
 
   @HostBinding('style.background-color')
@@ -59,10 +59,6 @@ export class RainfallNotificationComponent {
     const interpolatedColor = initColor.color.map((rgb: number, i: number) => Math.round(rgb + (endColor.color[i] - rgb) * relativePercentage));
 
     return `rgb(${interpolatedColor.join(',')})`;
-  }
-
-  public constructor(rainDataService: RainDataService) {
-    this.daysWithoutRain = rainDataService.getNumberOfDaysWithoutRain(this.selectedMonth, this.selectedYear);
   }
 
   /**

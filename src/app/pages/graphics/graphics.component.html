@@ -3,7 +3,8 @@
 </app-data-file-selector>
 
 <!-- show always to avoid dinamic margins because of the fixed data file selector -->
-<app-rainfall-notification class="rainfall-notification" [selectedMonth]="selectedMonth" [selectedYear]="selectedYear">
+<app-rainfall-notification class="rainfall-notification" [selectedMonth]="selectedMonth" [selectedYear]="selectedYear"
+  [daysWithoutRain]="daysWithoutRain">
 </app-rainfall-notification>
 
 <div class="figures-container">
