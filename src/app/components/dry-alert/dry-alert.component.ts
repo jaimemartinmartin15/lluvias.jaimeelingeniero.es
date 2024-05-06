@@ -10,13 +10,13 @@ const MINIMUM_DAYS = 6;
 const MAXIMUM_DAYS = 70;
 
 @Component({
-  selector: 'app-rainfall-notification',
+  selector: 'app-dry-alert',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './rainfall-notification.component.html',
-  styleUrls: ['./rainfall-notification.component.scss'],
+  templateUrl: './dry-alert.component.html',
+  styleUrls: ['./dry-alert.component.scss'],
 })
-export class RainfallNotificationComponent {
+export class DryAlertComponent {
   @Input()
   public selectedMonth: number;
 
