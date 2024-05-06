@@ -3,6 +3,7 @@ import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { DataFileSelectorComponent } from '../../components/data-file-selector/data-file-selector.component';
 import { DaysGraphicComponent } from '../../components/days-graphic/days-graphic.component';
 import { MonthsGraphicComponent } from '../../components/months-graphic/months-graphic.component';
+import { RainfallNotificationComponent } from '../../components/rainfall-notification/rainfall-notification.component';
 import { YearsGraphicComponent } from '../../components/years-graphic/years-graphic.component';
 import { FileLine } from '../../models/file-line';
 import { RainDataService } from '../../services/rain-data.service';
@@ -11,7 +12,14 @@ import { SnapScrollHelper } from './snap-scroll-helper';
 @Component({
   selector: 'app-graphics-component',
   standalone: true,
-  imports: [CommonModule, DataFileSelectorComponent, DaysGraphicComponent, MonthsGraphicComponent, YearsGraphicComponent],
+  imports: [
+    CommonModule,
+    DataFileSelectorComponent,
+    RainfallNotificationComponent,
+    DaysGraphicComponent,
+    MonthsGraphicComponent,
+    YearsGraphicComponent,
+  ],
   templateUrl: './graphics.component.html',
   styleUrl: './graphics.component.scss',
 })

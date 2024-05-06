@@ -10,13 +10,16 @@
   z-index: 10;
 }
 
+.rainfall-notification {
+  margin: 60px auto 0; // 60px for fixed data-file-selector
+}
+
 .figures-container {
   display: flex;
   flex-wrap: wrap;
   gap: 40px;
   padding: 15px;
   max-width: 1000px;
-  margin: 60px auto 0; // 60px for fixed data-file-selector
 }
 
 figure {
