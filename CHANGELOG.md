@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 1.3.0
+
+Added dry alert component.
+
+Updated jei-devkit-angular-builders version.
+
 ## 1.2.2
 
 Added e2e tests using puppeteer.
