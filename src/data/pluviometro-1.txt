@@ -1,6 +1,7 @@
 # Formato explicado en: https://lluvias.jaimeelingeniero.es/formato-fichero
 
 # MAYO 2024
+07/05/2024;0
 06/05/2024;0
 05/05/2024;10.5;red;Esta es la lluvia acumulada desde el 1 de mayo al 5 de mayo. # viaje
 04/05/2024;0 # viaje
