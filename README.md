@@ -34,15 +34,32 @@ npm run start:public
 
 ## Testing e2e
 
-To start the e2e tests run:
+To start the e2e test run:
 
 ```text
 npm run test:e2e
 ```
 
-The tests have some `expect` but they also generate [screenshots](./e2e/screenshots/e2e-results) that are compared to [originals](./e2e/screenshots/originals).
+The tests have some expect but they also generate [screenshots](./e2e/screenshots/e2e-results/) that are compared to [originals](./e2e/screenshots/originals/).
 
-If you make any changes that impact how the application looks, e2e tests might start failing. After reviewing and confirming that the new screenshots are correct, move them to originals folder and commit them.
+If you make any changes that impact how the application looks, or create new screenshots, e2e tests might start failing.
+
+To solve this follow these steps:
+
+- Run `npm run test:e2e` to generate the _new_ screenshots.
+- Move the [new screenshots](./e2e/screenshots/e2e-results) to the [originals](./e2e/screenshots/originals/) folder. If there is an e2e-result image that is not in originals, it will fail and will not push the new images that we need.
+- Activate the flag _commitResults_ of `e2e-puppeteer` builder in [angular.json](angular.json).
+- Comment the AWS sections in the [workflow](./.github/workflows//build-and-publish.yml) to avoid deploy by mistake.
+- Commit the changes and push them to the remote.
+- Run the workflow manually in the branch you are working on.
+- Pull the changes.
+- Remove all [originals](./e2e/screenshots/originals/) screenshots, and paste there the new [e2e-result](./e2e/screenshots/e2e-results) screenshots.
+- Compare the git differences.
+- Deactive the flag _commitResults_ of `e2e-puppeteer` builder in [angular.json](angular.json).
+- Remove _all_ [result screenshots](./e2e/screenshots/e2e-results).
+- Uncomment the AWS sections in the [workflow](./.github/workflows//build-and-publish.yml) to avoid deploy by mistake.
+- Commit changes.
+- Try to deploy again.
 
 ## Deploy
 
