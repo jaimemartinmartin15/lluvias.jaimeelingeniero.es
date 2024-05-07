@@ -83,12 +83,30 @@ xx/xx/2015;642
 xx/xx/2014;491
 `;
 
+/**
+ * purpose: show dry alert
+ */
+const pluviometro6txt = `
+13/05/2024;0
+12/05/2024;0
+11/05/2024;0
+10/05/2024;0
+09/05/2024;0
+08/05/2024;0
+07/05/2024;0
+06/05/2024;0
+05/05/2024;0
+04/05/2024;0
+03/05/2024;0
+`;
+
 const pluviometers = {
   'pluviometro-1.txt': pluviometro1txt,
   'pluviometro-2.txt': pluviometro2txt,
   'pluviometro-3.txt': pluviometro3txt,
   'pluviometro-4.txt': pluviometro4txt,
   'pluviometro-5.txt': pluviometro5txt,
+  'pluviometro-6.txt': pluviometro6txt,
 } as const;
 
 export const onRequestInterceptor: puppeteer.Handler<puppeteer.HTTPRequest> = (request) => {

@@ -117,10 +117,13 @@ export class RainDataService {
 
   public getNumberOfDaysWithoutRain(): number {
     // take the number of days without rain since the last annotated day (it might not be today!)
-    return [...this.rainDataPerDay]
+    const numberOfDaysWithoutRain = [...this.rainDataPerDay]
       .sort(compareDates)
       .reverse()
       .findIndex((data) => data.liters > 0);
+
+    // in case there is data, but no rain
+    return numberOfDaysWithoutRain === -1 ? this.rainDataPerDay.length : numberOfDaysWithoutRain;
   }
 
   public getRainDataPerDays(month: number, year: number): RainData[] {
