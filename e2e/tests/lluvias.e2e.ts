@@ -1,6 +1,5 @@
 import {
   SELECTOR,
-  aTimeout,
   addNewDataFile,
   cancelDeleteDataFile,
   confirmDeleteDataFile,
@@ -111,5 +110,13 @@ describe('Lluvias app', function () {
     await verifyLocalStorageNotContains('pagesWeather-defaultDataFile', 'No existe');
     await openDataFileSelector(); // close to take better screenshot
     await takeScreenshot(`${screenshotIndex++}.error-loading-data-file-select-collapsed`);
+
+    // select data file: pluviometro-6.txt
+    // show dry alert
+    await openDataFileSelector();
+    await setMonthAndYear(5, 2024);
+    await addNewDataFile('El desierto', 'data/pluviometro-6.txt');
+    await selectDataFile(5, 'El desierto', 'data/pluviometro-6.txt');
+    await takeScreenshot(`${screenshotIndex++}.display-pluviometro-6-dry-alert`);
   }, 30000);
 });

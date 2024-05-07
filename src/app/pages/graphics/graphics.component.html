@@ -2,6 +2,11 @@
   (error)="onLoadDataFileError($event)" (loadNewDataFile)="onLoadDataFile($event)">
 </app-data-file-selector>
 
+<!-- show always to avoid dinamic margins because of the fixed data file selector -->
+<app-dry-alert class="rainfall-notification" [selectedMonth]="selectedMonth" [selectedYear]="selectedYear"
+  [daysWithoutRain]="daysWithoutRain">
+</app-dry-alert>
+
 <div class="figures-container">
   <figure class="graphic-scroller" #daysGraphicScroller (scroll)="daysGraphicScrollEvents$.next()">
     <app-days-graphic [month]="selectedMonth > 0 ? selectedMonth - 1 : 11"

@@ -20,9 +20,7 @@
             "outputPath": "dist/lluvias",
             "index": "src/index.html",
             "browser": "src/main.ts",
-            "polyfills": [
-              "zone.js"
-            ],
+            "polyfills": ["zone.js"],
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
@@ -38,9 +36,7 @@
                 "output": "/data/"
               }
             ],
-            "styles": [
-              "src/styles.scss"
-            ],
+            "styles": ["src/styles.scss"],
             "scripts": []
           },
           "configurations": {
@@ -94,7 +90,9 @@
             "pixelThreshold": 25,
             "imageThreshold": 0.08,
             "originalImagesFolder": "e2e/screenshots/originals/",
-            "e2eResultImagesFolder": "e2e/screenshots/e2e-results/"
+            "e2eResultImagesFolder": "e2e/screenshots/e2e-results/",
+            "commitResults": false,
+            "gitUserEmail": "jaimemartinmartin15@users.noreply.github.com"
           },
           "configurations": {
             "production": {

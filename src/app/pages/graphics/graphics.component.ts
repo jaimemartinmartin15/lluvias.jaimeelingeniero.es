@@ -3,6 +3,7 @@ import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { DataFileSelectorComponent } from '../../components/data-file-selector/data-file-selector.component';
 import { DaysGraphicComponent } from '../../components/days-graphic/days-graphic.component';
 import { MonthsGraphicComponent } from '../../components/months-graphic/months-graphic.component';
+import { DryAlertComponent } from '../../components/dry-alert/dry-alert.component';
 import { YearsGraphicComponent } from '../../components/years-graphic/years-graphic.component';
 import { FileLine } from '../../models/file-line';
 import { RainDataService } from '../../services/rain-data.service';
@@ -11,7 +12,14 @@ import { SnapScrollHelper } from './snap-scroll-helper';
 @Component({
   selector: 'app-graphics-component',
   standalone: true,
-  imports: [CommonModule, DataFileSelectorComponent, DaysGraphicComponent, MonthsGraphicComponent, YearsGraphicComponent],
+  imports: [
+    CommonModule,
+    DataFileSelectorComponent,
+    DryAlertComponent,
+    DaysGraphicComponent,
+    MonthsGraphicComponent,
+    YearsGraphicComponent,
+  ],
   templateUrl: './graphics.component.html',
   styleUrl: './graphics.component.scss',
 })
@@ -23,6 +31,8 @@ export class GraphicsComponent extends SnapScrollHelper implements OnInit, After
 
   public selectedYear = new Date().getFullYear();
   public selectedMonth = new Date().getMonth();
+
+  public daysWithoutRain: number = 0;
 
   public constructor(public readonly rainDataService: RainDataService) {
     super();
@@ -45,6 +55,8 @@ export class GraphicsComponent extends SnapScrollHelper implements OnInit, After
 
   public onLoadDataFile(fileLines: FileLine[]) {
     this.rainDataService.setData(fileLines);
+
+    this.daysWithoutRain = this.rainDataService.getNumberOfDaysWithoutRain();
 
     // select current month and year
     this.selectedYear = new Date().getFullYear();
