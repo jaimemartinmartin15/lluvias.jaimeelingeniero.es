@@ -1,6 +1,7 @@
 # Formato explicado en: https://lluvias.jaimeelingeniero.es/formato-fichero
 
 # MAYO 2024
+27/05/2024;0
 26/05/2024;0
 25/05/2024;0
 24/05/2024;0
