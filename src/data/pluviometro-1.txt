@@ -1,12 +1,14 @@
 # Formato explicado en: https://lluvias.jaimeelingeniero.es/formato-fichero
 
-# MAYO 2024
-06/06/2024;0
+# JUNIO 2024
+06/06/2024;4
 05/06/2024;0
 04/06/2024;0
 03/06/2024;0
 02/06/2024;0
 01/06/2024;0
+
+# MAYO 2024
 31/05/2024;0
 30/05/2024;0
 29/05/2024;0
