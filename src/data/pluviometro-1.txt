@@ -1,6 +1,7 @@
 # Formato explicado en: https://lluvias.jaimeelingeniero.es/formato-fichero
 
 # JUNIO 2024
+10/06/2024;0
 09/06/2024;0
 08/06/2024;1
 07/06/2024;0
