@@ -1,8 +1,8 @@
 # Formato explicado en: https://lluvias.jaimeelingeniero.es/formato-fichero
 
 # JUNIO 2024
-19/06/2024;0
-18/06/2024;10 # casi 10 # viaje
+19/06/2024;5
+18/06/2024;10 # viaje
 17/06/2024;0
 16/06/2024;0
 15/06/2024;0
