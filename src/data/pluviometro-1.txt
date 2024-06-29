@@ -1,9 +1,9 @@
 # Formato explicado en: https://lluvias.jaimeelingeniero.es/formato-fichero
 
 # JUNIO 2024
-28/06/2024;0
+28/06/2024;3
 27/06/2024;0
-26/06/2024;2 # 1.8 L
+26/06/2024;2
 25/06/2024;0
 24/06/2024;0
 23/06/2024;0
