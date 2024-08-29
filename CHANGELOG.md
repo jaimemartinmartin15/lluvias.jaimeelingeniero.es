@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 1.3.1
+
+Added cache busting to fetch rain data files.
+
 ## 1.3.0
 
 Added dry alert component.

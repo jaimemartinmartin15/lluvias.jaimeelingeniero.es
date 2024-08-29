@@ -98,7 +98,8 @@ export class DataFileSelectorComponent implements OnInit, AfterViewInit {
     this.selectedDataFile = dataFile;
     this.isLoading.emit(true);
     this.http
-      .get(dataFile.url, { responseType: 'text' })
+      // add cache busting
+      .get(`${dataFile.url}?cb=${Date.now()}`, { responseType: 'text' })
       .pipe(
         map((response: string) =>
           response
