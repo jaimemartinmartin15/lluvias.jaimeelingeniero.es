@@ -111,7 +111,7 @@ const pluviometers = {
 
 export const onRequestInterceptor: puppeteer.Handler<puppeteer.HTTPRequest> = (request) => {
   const segments = request.url().split(/\/|\?/);
-  const fileName = segments[segments.length - 1] as keyof typeof pluviometers;
+  const fileName = segments[segments.length - 2] as keyof typeof pluviometers;
 
   if (fileName.startsWith('pluviometro')) {
     request.respond({ contentType: 'text/plain', body: pluviometers[fileName] });
