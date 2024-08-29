@@ -1,7 +1,7 @@
 # Formato explicado en: https://lluvias.jaimeelingeniero.es/formato-fichero
 
 # AGOSTO 2024
-28/08/2024;0
+28/08/2024;0.5;red;Han pasado 60 días sin llover. Algún día sí cayó alguna gota, pero el pluviómetro no midió nada.
 27/08/2024;0 # viaje
 26/08/2024;0 # viaje
 25/08/2024;0 # viaje
