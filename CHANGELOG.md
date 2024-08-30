@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 1.3.2
+
+Ignore query params in service worker to fetch cached files when no connection.
+
 ## 1.3.1
 
 Added cache busting to fetch rain data files.

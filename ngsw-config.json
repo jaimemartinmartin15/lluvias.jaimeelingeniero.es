@@ -27,6 +27,9 @@
         "maxAge": "14d",
         "strategy": "freshness",
         "timeout": "20s"
+      },
+      "cacheQueryOptions": {
+        "ignoreSearch": true
       }
     }
   ]
