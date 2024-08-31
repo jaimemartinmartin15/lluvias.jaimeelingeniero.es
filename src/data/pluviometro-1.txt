@@ -1,7 +1,7 @@
 # Formato explicado en: https://lluvias.jaimeelingeniero.es/formato-fichero
 
 # AGOSTO 2024
-31/08/2024;31;red;31 L casi en 1h con una fuerte granizada. El agua del corral saltó a la cochera y salió a la calle.
+31/08/2024;41;red;31 L casi en 1h con una fuerte granizada. El agua del corral saltó a la cochera y salió a la calle.
 30/08/2024;3
 29/08/2024;0
 28/08/2024;0.5;red;Han pasado 60 días sin llover. Algún día sí cayó alguna gota, pero el pluviómetro no midió nada.
