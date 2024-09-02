@@ -1,6 +1,7 @@
 # Formato explicado en: https://lluvias.jaimeelingeniero.es/formato-fichero
 
 # SEPTIEMBRE 2024
+02/09/2024;0
 01/09/2024;0
 
 # AGOSTO 2024
