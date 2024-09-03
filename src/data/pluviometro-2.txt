@@ -1,9 +1,11 @@
 # Formato explicado en: https://lluvias.jaimeelingeniero.es/formato-fichero
 
-# AGOSTO 2024
+# SEPTIEMBRE 2024
 02/09/2024;0
 01/09/2024;0
-31/08/2024;0
+
+# AGOSTO 2024
+31/08/2024;32;red;Anotado con 4 días de retraso (posiblemente cayera más).
 30/08/2024;0
 29/08/2024;0
 28/08/2024;0
