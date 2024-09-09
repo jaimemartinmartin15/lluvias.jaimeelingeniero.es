@@ -1,6 +1,9 @@
 # CHANGELOG
 
+## 1.4.0
+
 Added query params to load initial year and month.
+Added query params to load and save data files from the url.
 
 ## 1.3.2
 
