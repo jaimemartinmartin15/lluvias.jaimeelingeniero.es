@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { AfterViewInit, Component, ElementRef, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { finalize, map, tap } from 'rxjs';
 import { COMMENT, DEFAULT_DATA_FILE, LINE_SEPARATOR } from '../../constants/data-file';
 import { LOCAL_STORE_KEYS } from '../../constants/local-storage-keys';
@@ -41,13 +41,30 @@ export class DataFileSelectorComponent implements OnInit, AfterViewInit {
   @Output()
   public loadNewDataFile: EventEmitter<FileLine[]> = new EventEmitter();
 
-  public constructor(private readonly http: HttpClient) {}
+  public constructor(private readonly activatedRoute: ActivatedRoute, private readonly http: HttpClient) {}
 
   public ngOnInit() {
     this.dataFiles = JSON.parse(localStorage.getItem(LOCAL_STORE_KEYS.DATA_FILES) ?? JSON.stringify([DEFAULT_DATA_FILE]));
-    this.selectedDataFile = JSON.parse(localStorage.getItem(LOCAL_STORE_KEYS.DEFAULT_DATA_FILE) ?? JSON.stringify(this.dataFiles[0]));
+    const dataFileQueryParam = this.getDataFileQueryParam();
+    this.selectedDataFile = dataFileQueryParam ?? JSON.parse(localStorage.getItem(LOCAL_STORE_KEYS.DEFAULT_DATA_FILE) ?? JSON.stringify(this.dataFiles[0]));
+
+    // add new data file to the list if:
+    //  - data file is correct in the url
+    //  - query param indicates it
+    //  - there is no already an alias with same name
+    if(dataFileQueryParam && this.activatedRoute.snapshot.queryParams['guardar'] === 'si' && !this.dataFiles.find(df => df.alias === this.selectedDataFile.alias)) {
+      this.dataFiles.push(dataFileQueryParam);
+      localStorage.setItem(LOCAL_STORE_KEYS.DATA_FILES, JSON.stringify(this.dataFiles));
+    }
 
     this.selectDataFile(this.selectedDataFile);
+  }
+  
+  private getDataFileQueryParam(): DataFile | undefined {
+    const alias = this.activatedRoute.snapshot.queryParams['alias'] || 'anónimo';
+    const url = this.activatedRoute.snapshot.queryParams['url'];
+
+    return url ? {alias, url} : undefined;
   }
 
   public ngAfterViewInit(): void {

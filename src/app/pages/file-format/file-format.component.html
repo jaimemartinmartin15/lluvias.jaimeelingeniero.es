@@ -179,8 +179,8 @@
   <h1>Alertas</h1>
 
   <p>
-    Si han pasado más de 6 días sin llover, se mostrará automáticamente una alerta al inicio de le página. Esta alerta
-    sólo se muestra en el mes y año actual.
+    Si han pasado 7 días o más sin llover, se mostrará automáticamente una alerta cuyo color depende de la cantidad de
+    días sin llover. Esta alerta sólo se muestra en el mes y año actual.
   </p>
 
   <p>
@@ -222,6 +222,61 @@ xx/07/2020;5;orange;Este mes ha hecho muchísimo calor.
 xx/xx/2020;36</pre>
 </section>
 
-<a class="close-button" routerLink="/" data-test-id="back-button">
+<section>
+  <h1>Parámetros de consulta</h1>
+
+  <p>
+    Puedes añadir parámetros de consulta en la url cuando la compartas con alguien. A continuación se indica que hace
+    cada uno de ellos.
+  </p>
+
+  <dl>
+    <dt>año</dt>
+    <dd>
+      <p>
+        Este parámetro carga por defecto el año indicado. Si no se indica o el valor no es un número, se carga el año
+        actual.
+      </p>
+
+      <pre>Ejemplo: <span class="url">https://lluvias.jaimeelingeniero.es/<span class="query-param">?año=2022</span></span></pre>
+    </dd>
+
+    <dt>mes</dt>
+    <dd>
+      <p>
+        Este parámetro carga por defecto el mes indicado. Si no se indica o el valor no es un número, se carga el mes
+        actual. Si el mes es menor que 1, se carga enero, y si el mes es mayor que 12 se carga diciembre.
+      </p>
+
+      <pre>Ejemplo: <span class="url">https://lluvias.jaimeelingeniero.es/<span class="query-param">?mes=2</span></span></pre>
+
+      <p>
+        Carga el mes de febrero.
+      </p>
+    </dd>
+
+    <dt>alias</dt>
+    <dd>
+      Este parámetro permite especificar el nombre de un nuevo fichero de datos a cargar.
+    </dd>
+
+    <dt>url</dt>
+    <dd>
+      Este parámetro permite especificar la ruta del fichero de datos a cargar por defecto.
+    </dd>
+
+    <dt>guardar</dt>
+    <dd>
+      <p>
+        Este parámetro permite guardar el fichero de datos especificado en la url en la lista de ficheros disponibles.
+        Para ello el valor debe ser <strong>si</strong>.
+      </p>
+
+      <pre>Ejemplo: <span class="url">https://lluvias.jaimeelingeniero.es/<span class="query-param">?alias=Mi alias&url=datos/mi-pluviometro.txt&guardar=si</span></span></pre>
+    </dd>
+  </dl>
+</section>
+
+<a class="close-button" routerLink="/" queryParamsHandling="preserve" data-test-id="back-button">
   <span>&#x21A4;</span> Entendido
 </a>

@@ -16,7 +16,7 @@
   </div>
 
   <form class="new-option" (submit)="addNewDataFile($event)">
-    <a class="info" routerLink="/formato-fichero" data-test-id="link-file-format">i</a>
+    <a class="info" routerLink="/formato-fichero" queryParamsHandling="preserve" data-test-id="link-file-format">i</a>
 
     <input type="text" placeholder="alias:url" data-test-id="new-data-file-input">
 

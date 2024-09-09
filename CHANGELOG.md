@@ -1,5 +1,7 @@
 # CHANGELOG
 
+Added query params to load initial year and month.
+
 ## 1.3.2
 
 Ignore query params in service worker to fetch cached files when no connection.
