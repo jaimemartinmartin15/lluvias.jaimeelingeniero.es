@@ -190,37 +190,6 @@
 </section>
 
 <section>
-  <h1>Parámetros de consulta</h1>
-
-  <p>
-    Puedes añadir ciertos parámetros de consulta en la url cuando la compartes con alguien. A continuación se indica que
-    hace cada uno de ellos.
-  </p>
-
-  <dl>
-    <dt>año</dt>
-    <dd>
-      <p>
-        Este parámetro carga por defecto el año indicado. Si no se indica o el valor no es un número, se carga el año
-        actual.
-      </p>
-
-      <p>Ejemplo: <strong class="url">https://lluvias.jaimeelingeniero.es?año=2022</strong></p>
-    </dd>
-
-    <dt>mes</dt>
-    <dd>
-      <p>
-        Este parámetro carga por defecto el mes indicado. Si no se indica o el valor no es un número, se carga el mes
-        actual. Si el mes es menor que 1, se carga enero, y si el mes es mayor que 12 se carga diciembre.
-      </p>
-
-      <p>Ejemplo: <strong class="url">https://lluvias.jaimeelingeniero.es?mes=2</strong> carga el mes de febrero.</p>
-    </dd>
-  </dl>
-</section>
-
-<section>
   <h1>Ejemplo</h1>
 
   <p>
@@ -251,6 +220,61 @@ xx/02/2020;;green;Este me ha helado mucho.
 05/07/2020;3
 xx/07/2020;5;orange;Este mes ha hecho muchísimo calor.
 xx/xx/2020;36</pre>
+</section>
+
+<section>
+  <h1>Parámetros de consulta</h1>
+
+  <p>
+    Puedes añadir parámetros de consulta en la url cuando la compartas con alguien. A continuación se indica que hace
+    cada uno de ellos.
+  </p>
+
+  <dl>
+    <dt>año</dt>
+    <dd>
+      <p>
+        Este parámetro carga por defecto el año indicado. Si no se indica o el valor no es un número, se carga el año
+        actual.
+      </p>
+
+      <pre>Ejemplo: <span class="url">https://lluvias.jaimeelingeniero.es/<span class="query-param">?año=2022</span></span></pre>
+    </dd>
+
+    <dt>mes</dt>
+    <dd>
+      <p>
+        Este parámetro carga por defecto el mes indicado. Si no se indica o el valor no es un número, se carga el mes
+        actual. Si el mes es menor que 1, se carga enero, y si el mes es mayor que 12 se carga diciembre.
+      </p>
+
+      <pre>Ejemplo: <span class="url">https://lluvias.jaimeelingeniero.es/<span class="query-param">?mes=2</span></span></pre>
+
+      <p>
+        Carga el mes de febrero.
+      </p>
+    </dd>
+
+    <dt>alias</dt>
+    <dd>
+      Este parámetro permite especificar el nombre de un nuevo fichero de datos a cargar.
+    </dd>
+
+    <dt>url</dt>
+    <dd>
+      Este parámetro permite especificar la ruta del fichero de datos a cargar por defecto.
+    </dd>
+
+    <dt>guardar</dt>
+    <dd>
+      <p>
+        Este parámetro permite guardar el fichero de datos especificado en la url en la lista de ficheros disponibles.
+        Para ello el valor debe ser <strong>si</strong>.
+      </p>
+
+      <pre>Ejemplo: <span class="url">https://lluvias.jaimeelingeniero.es/<span class="query-param">?alias=Mi alias&url=datos/mi-pluviometro.txt&guardar=si</span></span></pre>
+    </dd>
+  </dl>
 </section>
 
 <a class="close-button" routerLink="/" queryParamsHandling="preserve" data-test-id="back-button">
