@@ -190,6 +190,37 @@
 </section>
 
 <section>
+  <h1>Parámetros de consulta</h1>
+
+  <p>
+    Puedes añadir ciertos parámetros de consulta en la url cuando la compartes con alguien. A continuación se indica que
+    hace cada uno de ellos.
+  </p>
+
+  <dl>
+    <dt>año</dt>
+    <dd>
+      <p>
+        Este parámetro carga por defecto el año indicado. Si no se indica o el valor no es un número, se carga el año
+        actual.
+      </p>
+
+      <p>Ejemplo: <strong class="url">https://lluvias.jaimeelingeniero.es?año=2022</strong></p>
+    </dd>
+
+    <dt>mes</dt>
+    <dd>
+      <p>
+        Este parámetro carga por defecto el mes indicado. Si no se indica o el valor no es un número, se carga el mes
+        actual. Si el mes es menor que 1, se carga enero, y si el mes es mayor que 12 se carga diciembre.
+      </p>
+
+      <p>Ejemplo: <strong class="url">https://lluvias.jaimeelingeniero.es?mes=2</strong> carga el mes de febrero.</p>
+    </dd>
+  </dl>
+</section>
+
+<section>
   <h1>Ejemplo</h1>
 
   <p>
@@ -222,6 +253,6 @@ xx/07/2020;5;orange;Este mes ha hecho muchísimo calor.
 xx/xx/2020;36</pre>
 </section>
 
-<a class="close-button" routerLink="/" data-test-id="back-button">
+<a class="close-button" routerLink="/" queryParamsHandling="preserve" data-test-id="back-button">
   <span>&#x21A4;</span> Entendido
 </a>

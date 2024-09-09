@@ -13,6 +13,9 @@
           "/favicons/**",
           "/manifest.webmanifest"
         ]
+      },
+      "cacheQueryOptions": {
+        "ignoreSearch": true
       }
     }
   ],

@@ -1,9 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { DataFileSelectorComponent } from '../../components/data-file-selector/data-file-selector.component';
 import { DaysGraphicComponent } from '../../components/days-graphic/days-graphic.component';
-import { MonthsGraphicComponent } from '../../components/months-graphic/months-graphic.component';
 import { DryAlertComponent } from '../../components/dry-alert/dry-alert.component';
+import { MonthsGraphicComponent } from '../../components/months-graphic/months-graphic.component';
 import { YearsGraphicComponent } from '../../components/years-graphic/years-graphic.component';
 import { FileLine } from '../../models/file-line';
 import { RainDataService } from '../../services/rain-data.service';
@@ -34,14 +35,33 @@ export class GraphicsComponent extends SnapScrollHelper implements OnInit, After
 
   public daysWithoutRain: number = 0;
 
-  public constructor(public readonly rainDataService: RainDataService) {
+  public constructor(private readonly activatedRoute: ActivatedRoute, public readonly rainDataService: RainDataService) {
     super();
   }
 
   public ngOnInit() {
+    // calculate initial year and month to load
+    this.selectedYear = this.getYearQueryParam() ?? new Date().getFullYear();
+    this.selectedMonth = this.getMonthQueryParam() ?? new Date().getMonth();
+
     this.handleScrollSnapEvents();
     this.handleDaysGraphicScroll();
     this.handleMonthsGraphicScroll();
+  }
+
+  private getYearQueryParam(): number | undefined {
+    const year = +this.activatedRoute.snapshot.queryParams['año'];
+    if(isNaN(year)) return undefined;
+    return year;
+  }
+
+  private getMonthQueryParam(): number | undefined {
+    const month = +this.activatedRoute.snapshot.queryParams['mes'];
+    if(isNaN(month)) return undefined;
+    // js months go from 0 (January) to 11 (December)
+    if(month < 1) return 0;
+    if(month > 11) return 11;
+    return month - 1;
   }
 
   public ngAfterViewInit() {
@@ -57,10 +77,6 @@ export class GraphicsComponent extends SnapScrollHelper implements OnInit, After
     this.rainDataService.setData(fileLines);
 
     this.daysWithoutRain = this.rainDataService.getNumberOfDaysWithoutRain();
-
-    // select current month and year
-    this.selectedYear = new Date().getFullYear();
-    this.selectedMonth = new Date().getMonth();
 
     this.updateHeightsOfGraphicWrappers();
   }
