@@ -1,6 +1,7 @@
 # Formato explicado en: https://lluvias.jaimeelingeniero.es/formato-fichero
 
 # SEPTIEMBRE 2024
+17/09/2024;0
 16/09/2024;0
 15/09/2024;0
 14/09/2024;0
