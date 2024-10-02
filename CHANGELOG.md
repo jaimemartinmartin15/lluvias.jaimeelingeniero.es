@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 1.4.1
+
+Increased threshold to show number of liters inside water line in months graphic.
+
 ## 1.4.0
 
 Added query params to load initial year and month.
