@@ -6,6 +6,7 @@ Increased threshold to show number of liters inside water line in months graphic
 
 ## 1.4.0
 
+Date is not reseted after loading new data files.
 Added query params to load initial year and month.
 Added query params to load and save data files from the url.
 
