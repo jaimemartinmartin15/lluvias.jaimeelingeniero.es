@@ -27,10 +27,10 @@
 
   <!-- water liters -->
   <text *ngFor="let waterLine of rainPerMonths; let i=index" (click)="showMonth.emit(i)"
-    [attr.text-anchor]="waterLine.svgOffset > 200 ? 'end' : 'start'"
+    [attr.text-anchor]="waterLine.svgOffset > 180 ? 'end' : 'start'"
     [attr.transform]="'rotate(90,'+(25 + 30*i)+','+waterLine.svgOffset+')'"
-    [attr.x]="waterLine.svgOffset > 200 ? (15 + 30*i): (35 + 30*i)" [attr.y]="waterLine.svgOffset +2"
-    [attr.fill]="waterLine.svgOffset > 200 ? i===selectedMonth ? '#c1c100': '#00a2e8' : 'white'" stroke="none"
+    [attr.x]="waterLine.svgOffset > 180 ? (15 + 30*i): (35 + 30*i)" [attr.y]="waterLine.svgOffset +2"
+    [attr.fill]="waterLine.svgOffset > 180 ? i===selectedMonth ? '#c1c100': '#00a2e8' : 'white'" stroke="none"
     font-size="1.2rem" style="cursor: pointer">
     <ng-container *ngIf="waterLine.hasLiters">{{waterLine.liters}} L</ng-container>
   </text>
