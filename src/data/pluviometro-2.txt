@@ -1,6 +1,7 @@
 # Formato explicado en: https://lluvias.jaimeelingeniero.es/formato-fichero
 
 # OCTUBRE 2024
+06/10/2024;0
 05/10/2024;0
 04/10/2024;0
 03/10/2024;4;lavender;Lluvia de dos días.
