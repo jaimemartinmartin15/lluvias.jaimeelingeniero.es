@@ -1,6 +1,7 @@
 # Formato explicado en: https://lluvias.jaimeelingeniero.es/formato-fichero
 
 # OCTUBRE 2024
+13/10/2024;0
 12/10/2024;10.5;khaki;Con acumulados de 0.2L de otros días. 
 11/10/2024;0
 10/10/2024;0
