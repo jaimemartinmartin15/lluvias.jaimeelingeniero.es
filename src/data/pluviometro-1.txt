@@ -1,8 +1,8 @@
 # Formato explicado en: https://lluvias.jaimeelingeniero.es/formato-fichero
 
 # OCTUBRE 2024
-17/10/2024;0
-16/10/2024;4 # 4.1 L
+17/10/2024;0.5
+16/10/2024;4
 15/10/2024;9.5
 14/10/2024;0
 13/10/2024;0
