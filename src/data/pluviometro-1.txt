@@ -1,6 +1,7 @@
 # Formato explicado en: https://lluvias.jaimeelingeniero.es/formato-fichero
 
 # OCTUBRE 2024
+27/10/2024;0
 26/10/2024;4.5 # 4.6 (más un culín del pluviómetro, diría yo)
 25/10/2024;0 # 0.1 (el culín del pluviómetro) 
 24/10/2024;1.5
