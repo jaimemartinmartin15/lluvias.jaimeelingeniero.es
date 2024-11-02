@@ -1,7 +1,9 @@
 # Formato explicado en: https://lluvias.jaimeelingeniero.es/formato-fichero
 
-# OCTUBRE 2024
+# NOVIEMBRE 2024
 01/11/2024;0
+
+# OCTUBRE 2024
 31/10/2024;3.5
 30/10/2024;0
 29/10/2024;2
