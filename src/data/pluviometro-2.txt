@@ -1,6 +1,7 @@
 # Formato explicado en: https://lluvias.jaimeelingeniero.es/formato-fichero
 
 # NOVIEMBRE 2024
+05/11/2024;0
 04/11/2024;0
 03/11/2024;0
 02/11/2024;0
