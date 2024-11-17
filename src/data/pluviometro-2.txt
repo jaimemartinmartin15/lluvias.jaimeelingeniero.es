@@ -1,6 +1,7 @@
 # Formato explicado en: https://lluvias.jaimeelingeniero.es/formato-fichero
 
 # NOVIEMBRE 2024
+17/11/2024;0
 16/11/2024;0
 15/11/2024;5;red;Lluvia acumulada de los días 10,13 y 14.
 14/11/2024;0
