@@ -1,6 +1,7 @@
 # Formato explicado en: https://lluvias.jaimeelingeniero.es/formato-fichero
 
 # NOVIEMBRE 2024
+24/11/2024;0
 23/11/2024;0
 22/11/2024;0
 21/11/2024;3 # anteriormente: 0.1/0.2 algo más del culín
