@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 1.5.0
+
+Added date to pop up.
+
+Fix known issues in e2e test.
+
 ## 1.4.1
 
 Increased threshold to show number of liters inside water line in months graphic.
@@ -7,7 +13,9 @@ Increased threshold to show number of liters inside water line in months graphic
 ## 1.4.0
 
 Date is not reseted after loading new data files.
+
 Added query params to load initial year and month.
+
 Added query params to load and save data files from the url.
 
 ## 1.3.2

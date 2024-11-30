@@ -1,7 +1,7 @@
 import * as puppeteer from 'puppeteer';
 import { onRequestInterceptor } from './pluviometros.mocks';
 
-const baseUrl = process.env['baseUrl'] ?? 'http://localhost:4200/';
+export const baseUrl = process.env['baseUrl'] ?? 'http://localhost:4200/';
 let browser: puppeteer.Browser;
 let page: puppeteer.Page;
 

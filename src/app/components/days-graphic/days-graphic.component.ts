@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, OnChanges, Output } from '@angular/core';
+import { PopUp } from '../../models/pop-up';
 import { RainData } from '../../models/rain-data';
 import { RainDataService } from '../../services/rain-data.service';
 import { MONTHS } from '../../utils/date';
@@ -27,7 +28,7 @@ export class DaysGraphicComponent implements OnChanges {
   public error: boolean;
 
   @Output()
-  public showPopUp: EventEmitter<string> = new EventEmitter();
+  public showPopUp: EventEmitter<PopUp> = new EventEmitter();
 
   @Output()
   public showPreviousMonth: EventEmitter<void> = new EventEmitter();
@@ -63,7 +64,11 @@ export class DaysGraphicComponent implements OnChanges {
     const months = this.rainDataService.getRainDataPerMonths(this.year);
     const foundMonth = months.find((m) => m.month === this.month);
     if (foundMonth != null && foundMonth.hasMessage) {
-      this.showPopUp.emit(foundMonth.popUpContent);
+      this.showPopUp.emit({
+        show: true,
+        content: foundMonth.popUpContent,
+        date: new Intl.DateTimeFormat('es-ES', { month: 'long', year: 'numeric' }).format(new Date(`${foundMonth.year}-${foundMonth.month+1}-${1}`)),
+      });
     }
   }
 
@@ -88,7 +93,11 @@ export class DaysGraphicComponent implements OnChanges {
 
   public showDayPopUp(day: RainData) {
     if (day.hasMessage) {
-      this.showPopUp.emit(day.popUpContent);
+      this.showPopUp.emit({
+        show: true,
+        content: day.popUpContent,
+        date: new Intl.DateTimeFormat('es-ES', { dateStyle: 'long' }).format(new Date(`${day.year}-${day.month+1}-${day.day}`)),
+      });
     }
   }
 

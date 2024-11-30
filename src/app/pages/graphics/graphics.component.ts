@@ -7,6 +7,7 @@ import { DryAlertComponent } from '../../components/dry-alert/dry-alert.componen
 import { MonthsGraphicComponent } from '../../components/months-graphic/months-graphic.component';
 import { YearsGraphicComponent } from '../../components/years-graphic/years-graphic.component';
 import { FileLine } from '../../models/file-line';
+import { PopUp } from '../../models/pop-up';
 import { RainDataService } from '../../services/rain-data.service';
 import { SnapScrollHelper } from './snap-scroll-helper';
 
@@ -25,7 +26,7 @@ import { SnapScrollHelper } from './snap-scroll-helper';
   styleUrl: './graphics.component.scss',
 })
 export class GraphicsComponent extends SnapScrollHelper implements OnInit, AfterViewInit {
-  public readonly popUp = { show: false, content: '' };
+  public popUp: PopUp = { show: false, content: '', date: '' };
 
   public isDataFileLoading: boolean = false;
   public isErrorLoadingDataFile: boolean = false;

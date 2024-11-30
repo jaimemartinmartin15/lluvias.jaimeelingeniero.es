@@ -1,6 +1,7 @@
 import {
   SELECTOR,
   addNewDataFile,
+  baseUrl,
   cancelDeleteDataFile,
   confirmDeleteDataFile,
   deleteDataFile,
@@ -23,6 +24,7 @@ describe('Lluvias app', function () {
   it('should be usable and display well', async function () {
     const { page } = getBrowserState();
 
+    await page.goto(`${baseUrl}?mes=1&año=2024`);
     await setMonthAndYear(1, 2024);
 
     await verifyUrl('/');
@@ -86,9 +88,8 @@ describe('Lluvias app', function () {
     // check other year of pluviometro-5.txt
     // for technical reasons is necessary to reload the file
     // buttons does not work properly (scroll does not work properly)
-    await openDataFileSelector();
+    await page.goto(`${baseUrl}?mes=3&año=2025`);
     await setMonthAndYear(3, 2025);
-    await selectDataFile(4, 'Huerta de Juan', 'data/pluviometro-5.txt');
     await takeScreenshot(`${screenshotIndex++}.display-pluviometro-5-2025`);
 
     // delete data file and confirm
@@ -113,8 +114,9 @@ describe('Lluvias app', function () {
 
     // select data file: pluviometro-6.txt
     // show dry alert
-    await openDataFileSelector();
+    await page.goto(`${baseUrl}?mes=5&año=2024`);
     await setMonthAndYear(5, 2024);
+    await openDataFileSelector();
     await addNewDataFile('El desierto', 'data/pluviometro-6.txt');
     await selectDataFile(5, 'El desierto', 'data/pluviometro-6.txt');
     await takeScreenshot(`${screenshotIndex++}.display-pluviometro-6-dry-alert`);
