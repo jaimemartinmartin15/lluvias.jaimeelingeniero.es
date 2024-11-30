@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, OnChanges, Output } from '@angular/core';
+import { PopUp } from '../../models/pop-up';
 import { RainData } from '../../models/rain-data';
 import { RainDataService } from '../../services/rain-data.service';
 import { MONTHS } from '../../utils/date';
@@ -28,7 +29,7 @@ export class MonthsGraphicComponent implements OnChanges {
   public error: boolean;
 
   @Output()
-  public showPopUp: EventEmitter<string> = new EventEmitter();
+  public showPopUp: EventEmitter<PopUp> = new EventEmitter();
 
   @Output()
   public showPreviousYear: EventEmitter<void> = new EventEmitter();
@@ -77,7 +78,11 @@ export class MonthsGraphicComponent implements OnChanges {
     const years = this.rainDataService.getRainDataPerYear();
     const foundYear = years.find((y) => y.year === this.year);
     if (foundYear != null && foundYear.hasMessage) {
-      this.showPopUp.emit(foundYear.popUpContent);
+      this.showPopUp.emit({
+        show: true,
+        content: foundYear.popUpContent,
+        date: `Año ${foundYear.year}`,
+      });
     }
   }
 

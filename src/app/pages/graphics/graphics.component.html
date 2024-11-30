@@ -12,35 +12,35 @@
     <app-days-graphic [month]="selectedMonth > 0 ? selectedMonth - 1 : 11"
       [year]="selectedMonth > 0 ? selectedYear : selectedYear - 1" [loading]="isDataFileLoading"
       [error]="isErrorLoadingDataFile" (showPreviousMonth)="showPreviousMonth()" (showNextMonth)="showNextMonth()"
-      (showPopUp)="popUp.show = true; popUp.content= $event;">
+      (showPopUp)="popUp = $event">
     </app-days-graphic>
 
     <app-days-graphic [month]="selectedMonth" [year]="selectedYear" [loading]=" isDataFileLoading"
       [error]="isErrorLoadingDataFile" (showPreviousMonth)="showPreviousMonth()" (showNextMonth)="showNextMonth()"
-      (showPopUp)="popUp.show = true; popUp.content= $event;">
+      (showPopUp)="popUp = $event">
     </app-days-graphic>
 
     <app-days-graphic [month]="selectedMonth < 11 ? selectedMonth + 1 : 0"
       [year]="selectedMonth < 11 ? selectedYear : selectedYear + 1" [loading]="isDataFileLoading"
       [error]="isErrorLoadingDataFile" (showPreviousMonth)="showPreviousMonth()" (showNextMonth)="showNextMonth()"
-      (showPopUp)="popUp.show = true; popUp.content= $event;">
+      (showPopUp)="popUp = $event">
     </app-days-graphic>
   </figure>
 
   <figure class="graphic-scroller" #monthsGraphicScroller (scroll)="monthsGraphicScrollEvents$.next()">
     <app-months-graphic [selectedMonth]="selectedMonth" [year]="selectedYear - 1" [loading]="isDataFileLoading"
       [error]="isErrorLoadingDataFile" (showPreviousYear)="showPreviousYear()" (showNextYear)="showNextYear()"
-      (showMonth)="selectMonthOfSelectedYear($event)" (showPopUp)="popUp.show = true; popUp.content= $event;">
+      (showMonth)="selectMonthOfSelectedYear($event)" (showPopUp)="popUp = $event">
     </app-months-graphic>
 
     <app-months-graphic [selectedMonth]="selectedMonth" [year]="selectedYear" [loading]="isDataFileLoading"
       [error]="isErrorLoadingDataFile" (showPreviousYear)="showPreviousYear()" (showNextYear)="showNextYear()"
-      (showMonth)="selectMonthOfSelectedYear($event)" (showPopUp)="popUp.show = true; popUp.content= $event;">
+      (showMonth)="selectMonthOfSelectedYear($event)" (showPopUp)="popUp = $event">
     </app-months-graphic>
 
     <app-months-graphic [selectedMonth]="selectedMonth" [year]="selectedYear + 1" [loading]="isDataFileLoading"
       [error]="isErrorLoadingDataFile" (showPreviousYear)="showPreviousYear()" (showNextYear)="showNextYear()"
-      (showMonth)="selectMonthOfSelectedYear($event)" (showPopUp)="popUp.show = true; popUp.content= $event;">
+      (showMonth)="selectMonthOfSelectedYear($event)" (showPopUp)="popUp = $event">
     </app-months-graphic>
   </figure>
 
@@ -53,6 +53,7 @@
 
 <div class="pop-up-wrapper" *ngIf="popUp.show">
   <div class="content">
+    <h1>{{popUp.date}}</h1>
     <div>{{popUp.content}}</div>
     <button (click)="popUp.show = false" data-test-id="close-pop-up-button">Cerrar</button>
   </div>
