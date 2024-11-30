@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 1.5.0
+
+Added date to pop up.
+
 ## 1.4.1
 
 Increased threshold to show number of liters inside water line in months graphic.
