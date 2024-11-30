@@ -1,7 +1,7 @@
 # Formato explicado en: https://lluvias.jaimeelingeniero.es/formato-fichero
 
 # NOVIEMBRE 2024
-29/11/2024;0
+29/11/2024;0 # pendiente de días anteriores: 0.1/0.2 L (algo más del culín)
 28/11/2024;0
 27/11/2024;0
 26/11/2024;0
@@ -9,7 +9,7 @@
 24/11/2024;0
 23/11/2024;0
 22/11/2024;0
-21/11/2024;3 # anteriormente: 0.1/0.2 algo más del culín
+21/11/2024;3
 20/11/2024;0
 19/11/2024;0
 18/11/2024;0
