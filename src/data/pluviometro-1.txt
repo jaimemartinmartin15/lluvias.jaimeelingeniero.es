@@ -1,6 +1,7 @@
 # Formato explicado en: https://lluvias.jaimeelingeniero.es/formato-fichero
 
 # DICIEMBRE 2024
+15/12/2024;0
 14/12/2024;0
 13/12/2024;0
 12/12/2024;1
