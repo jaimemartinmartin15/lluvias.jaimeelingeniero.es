@@ -1,6 +1,7 @@
 # Formato explicado en: https://lluvias.jaimeelingeniero.es/formato-fichero
 
 # DICIEMBRE 2024
+28/12/2024;0
 27/12/2024;1;red;Agua acumulada por nieblas y heladas. 
 26/12/2024;0
 25/12/2024;0
