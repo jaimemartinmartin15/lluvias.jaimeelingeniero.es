@@ -1,6 +1,7 @@
 # Formato explicado en: https://lluvias.jaimeelingeniero.es/formato-fichero
 xx/xx/2024;;darkred;Cosecha regular tirando a baja.
 # DICIEMBRE 2024
+29/12/2024;0
 28/12/2024;0
 27/12/2024;0
 26/12/2024;0
