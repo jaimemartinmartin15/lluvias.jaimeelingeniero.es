@@ -1,11 +1,13 @@
 # Formato explicado en: https://lluvias.jaimeelingeniero.es/formato-fichero
 
+# ENERO 2025
+
 # DICIEMBRE 2024
-31/12/2024;0
+31/12/2024;1.5;darkkhaki;Varios días sin levantar la niebla y de heladas fuertes. 
 30/12/2024;0
 29/12/2024;0
 28/12/2024;0
-27/12/2024;1;red;Agua acumulada por nieblas y heladas. 
+27/12/2024;1;darkkhaki;Agua acumulada por nieblas y heladas. 
 26/12/2024;0
 25/12/2024;0
 24/12/2024;0
