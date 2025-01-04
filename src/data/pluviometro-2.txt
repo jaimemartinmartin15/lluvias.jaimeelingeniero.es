@@ -1,10 +1,15 @@
 # Formato explicado en: https://lluvias.jaimeelingeniero.es/formato-fichero
-xx/xx/2024;;darkred;Cosecha regular tirando a baja.
-# DICIEMBRE 2024
+
+# ENERO 2025
 03/01/2025;0
 02/01/2025;0
 01/01/2025;0
-31/12/2024;0
+
+# AÑO 2024
+xx/xx/2024;;darkred;Cosecha regular tirando a baja.
+
+# DICIEMBRE 2024
+31/12/2024;2;red;De nieblas y escarchas, sin llover.
 30/12/2024;0
 29/12/2024;0
 28/12/2024;0
