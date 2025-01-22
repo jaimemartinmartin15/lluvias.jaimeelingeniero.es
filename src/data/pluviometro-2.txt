@@ -1,6 +1,7 @@
 # Formato explicado en: https://lluvias.jaimeelingeniero.es/formato-fichero
 
 # ENERO 2025
+22/01/2025;0
 21/01/2025;5.5
 20/01/2025;14;lightblue;Lluvia de dos días.
 19/01/2025;0
