@@ -1,6 +1,7 @@
 # Formato explicado en: https://lluvias.jaimeelingeniero.es/formato-fichero
 
 # ENERO 2025
+26/01/2025;0
 25/01/2025;0
 24/01/2025;2.5 # no llegaba del todo al medio. 
 23/01/2025;0
