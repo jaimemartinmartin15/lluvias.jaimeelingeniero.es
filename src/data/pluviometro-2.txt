@@ -1,6 +1,7 @@
 # Formato explicado en: https://lluvias.jaimeelingeniero.es/formato-fichero
 
 # ENERO 2025
+28/01/2025;0
 27/01/2025;6.5
 26/01/2025;12.5
 25/01/2025;1
