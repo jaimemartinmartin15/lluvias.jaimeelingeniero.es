@@ -1,7 +1,7 @@
 # Formato explicado en: https://lluvias.jaimeelingeniero.es/formato-fichero
 
 # FEBRERO 2025
-02/02/2025;0
+02/02/2025;22;red;Con un poco de agua nieve.
 01/02/2025;0
 
 # ENERO 2025
