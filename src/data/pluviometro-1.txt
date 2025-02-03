@@ -1,6 +1,7 @@
 # Formato explicado en: https://lluvias.jaimeelingeniero.es/formato-fichero
 
 # FEBRERO 2025
+03/02/2025;0
 02/02/2025;22;blue;Primero llovió habiendo niebla, luego nevó y también heló. Tuve que meter el pluviómetro en casa para derretirlo. 
 01/02/2025;0
 
