@@ -1,6 +1,7 @@
 # Formato explicado en: https://lluvias.jaimeelingeniero.es/formato-fichero
 
 # FEBRERO 2025
+24/02/2025;0
 23/02/2025;0
 22/02/2025;0
 21/02/2025;7.5
