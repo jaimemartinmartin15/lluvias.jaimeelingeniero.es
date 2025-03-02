@@ -1,7 +1,7 @@
 # Formato explicado en: https://lluvias.jaimeelingeniero.es/formato-fichero
 
 # FEBRERO 2025
-01/03/2025;0
+01/03/2025;3 # fue algo más de tres, sin llegar al medio
 28/02/2025;0
 27/02/2025;0
 26/02/2025;0
