@@ -1,6 +1,7 @@
 # Formato explicado en: https://lluvias.jaimeelingeniero.es/formato-fichero
 
 # MARZO 2025
+05/03/2025;0
 04/03/2025;0
 03/03/2025;0
 02/03/2025;4
