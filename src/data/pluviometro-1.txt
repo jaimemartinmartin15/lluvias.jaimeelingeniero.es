@@ -1,6 +1,7 @@
 # Formato explicado en: https://lluvias.jaimeelingeniero.es/formato-fichero
 
 # MARZO 2025
+19/03/2025;0
 18/03/2025;7
 17/03/2025;0
 16/03/2025;7 # había un pelin más de 7 sin llegar al siete y medio
