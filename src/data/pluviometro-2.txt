@@ -1,7 +1,7 @@
 # Formato explicado en: https://lluvias.jaimeelingeniero.es/formato-fichero
 
 # MARZO 2025
-18/03/2025;0
+18/03/2025;7
 17/03/2025;0
 16/03/2025;7;red;Parte fue de agua nieve. 
 15/03/2025;0
