@@ -21,18 +21,16 @@ jobs:
           year=$(date +%Y)
           month_name=${months[$((month - 1))]}
           date=$(date +%d/%m/%Y)
-          month_year_comment="# $month_name 2026" # TODO revert to $year
+          month_year_comment="# $month_name $year"
 
-          # TODO debug line
-          echo "variables: $month $year $month_name $date $month_year_comment"
+          echo ""
 
           for file in "${files[@]}"
           do
               echo "Processing data file: $file"
 
               # check if it is first day of the month, and no '# MONTH YEAR' comment is already added
-              # TODO revert -eq to -eq 1 (not 21)
-              if [[ "$(date +%d)" -eq 21 && ! $(grep "$month_year_comment" $file) ]]
+              if [[ "$(date +%d)" -eq 1 && ! $(grep "$month_year_comment" $file) ]]
               then
                 # add the '# MONTH YEAR' comment and two white lines at line 3
                 sed -i "3i $month_year_comment\ \n" $file && echo "Comment month year added"
@@ -40,26 +38,24 @@ jobs:
               
               # check if today is not already added or add default rain data line in line 4
               ! grep -q $date && sed -i "4i $(date +%d/%m/%Y);0" $file && echo "Default rain data line added"
-          done
 
-          # TODO remove this debug lines
-          cat src/data/pluviometro-1.txt
-          cat src/data/pluviometro-2.txt
-      # - name: Commit and push
-      #   run: |
-      #     git config --global user.name 'Github Action'
-      #     git config --global user.email 'jaimemartinmartin15@users.noreply.github.com'
-      #     git commit -am "Automatic update data files"
-      #     git push
-      # - name: Set AWS credentials
-      #   uses: aws-actions/configure-aws-credentials@v4
-      #   with:
-      #     mask-aws-account-id: true
-      #     aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-      #     aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-      #     aws-region: eu-south-2
-      # - name: Upload files
-      #   run: |
-      #     aws --version
-      #     aws s3 cp src/data/pluviometro-1.txt s3://lluvias.jaimeelingeniero.es/data/pluviometro-1.txt
-      #     aws s3 cp src/data/pluviometro-2.txt s3://lluvias.jaimeelingeniero.es/data/pluviometro-2.txt
+              echo ""
+          done
+      - name: Commit and push
+        run: |
+          git config --global user.name 'Github Action'
+          git config --global user.email 'jaimemartinmartin15@users.noreply.github.com'
+          git commit -am "Automatic update data files"
+          git push
+      - name: Set AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          mask-aws-account-id: true
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: eu-south-2
+      - name: Upload files
+        run: |
+          aws --version
+          aws s3 cp src/data/pluviometro-1.txt s3://lluvias.jaimeelingeniero.es/data/pluviometro-1.txt
+          aws s3 cp src/data/pluviometro-2.txt s3://lluvias.jaimeelingeniero.es/data/pluviometro-2.txt
