@@ -21,7 +21,7 @@ jobs:
           year=$(date +%Y)
           month_name=${months[$((month - 1))]}
           date=$(date +%d/%m/%Y)
-          month_year_comment="# $month_name $year"
+          month_year_comment="# $month_name 2026" # TODO revert to $year
 
           # TODO debug line
           echo "variables: $month $year $month_name $date $month_year_comment"
