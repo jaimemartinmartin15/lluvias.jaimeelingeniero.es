@@ -12,7 +12,7 @@ jobs:
     timeout-minutes: 5
     steps:
       - name: Checkout
-        uses: actions/checkout@v4.1.1
+        uses: actions/checkout@v4
       - name: Add new line
         run: |
           months=("ENERO" "FEBRERO" "MARZO" "ABRIL" "MAYO" "JUNIO" "JULIO" "AGOSTO" "SEPTIEMBRE" "OCTUBRE" "NOVIEMBRE" "DICIEMBRE")
@@ -32,7 +32,7 @@ jobs:
 
               # check if it is first day of the month, and no '# MONTH YEAR' comment is already added
               # TODO revert -eq to -eq 1 (not 21)
-              if [[ "$(date +%d)" -eq 21 && ! $(grep -q "$month_year_comment" "$file") ]]
+              if [[ "$(date +%d)" -eq 21 && ! $(grep "$month_year_comment" $file) ]]
               then
                 # add the '# MONTH YEAR' comment and two white lines at line 3
                 sed -i "3i $month_year_comment\ \n" $file && echo "Comment month year added"
