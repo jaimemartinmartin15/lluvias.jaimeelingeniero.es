@@ -15,26 +15,50 @@ jobs:
         uses: actions/checkout@v4.1.1
       - name: Add new line
         run: |
-          # 4 is the line number to add the new line
-          sed "4 i $(date +%d/%m/%Y);0" src/data/pluviometro-1.txt > rain-data.tmp
-          mv rain-data.tmp src/data/pluviometro-1.txt
-          sed "4 i $(date +%d/%m/%Y);0" src/data/pluviometro-2.txt > rain-data.tmp
-          mv rain-data.tmp src/data/pluviometro-2.txt
-      - name: Commit and push
-        run: |
-          git config --global user.name 'Github Action'
-          git config --global user.email 'jaimemartinmartin15@users.noreply.github.com'
-          git commit -am "Automatic update data files"
-          git push
-      - name: Set AWS credentials
-        uses: aws-actions/configure-aws-credentials@v4
-        with:
-          mask-aws-account-id: true
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: eu-south-2
-      - name: Upload files
-        run: |
-          aws --version
-          aws s3 cp src/data/pluviometro-1.txt s3://lluvias.jaimeelingeniero.es/data/pluviometro-1.txt
-          aws s3 cp src/data/pluviometro-2.txt s3://lluvias.jaimeelingeniero.es/data/pluviometro-2.txt
+          months=("ENERO" "FEBRERO" "MARZO" "ABRIL" "MAYO" "JUNIO" "JULIO" "AGOSTO" "SEPTIEMBRE" "OCTUBRE" "NOVIEMBRE" "DICIEMBRE")
+          files=("src/data/pluviometro-1.txt" "src/data/pluviometro-2.txt")
+          month=$(date +%-m)
+          year=$(date +%Y)
+          month_name=${months[$((month - 1))]}
+          date=$(date +%d/%m/%Y)
+          month_year_comment="# $month_name $year"
+
+          # TODO debug line
+          echo "variables: $month $year $month_name $date $month_year_comment"
+
+          for file in "${files[@]}"
+          do
+              echo "Processing data file: $file"
+
+              # check if it is first day of the month, and no '# MONTH YEAR' comment is already added
+              if [[ "$(date +%d)" -eq 1 && ! grep -q "$month_year_comment" "$file" ]]
+              then
+                # add the '# MONTH YEAR' comment and two white lines at line 3
+                sed -i "3i $month_year_comment\ \n" $file && echo "Comment month year added"
+              fi
+              
+              # check if today is not already added or add default rain data line in line 4
+              ! grep -q $date && sed -i "4i $(date +%d/%m/%Y);0" $file && echo "Default rain data line added"
+          done
+
+          # TODO remove this debug lines
+          cat src/data/pluviometro-1.txt
+          cat src/data/pluviometro-2.txt
+      # - name: Commit and push
+      #   run: |
+      #     git config --global user.name 'Github Action'
+      #     git config --global user.email 'jaimemartinmartin15@users.noreply.github.com'
+      #     git commit -am "Automatic update data files"
+      #     git push
+      # - name: Set AWS credentials
+      #   uses: aws-actions/configure-aws-credentials@v4
+      #   with:
+      #     mask-aws-account-id: true
+      #     aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      #     aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      #     aws-region: eu-south-2
+      # - name: Upload files
+      #   run: |
+      #     aws --version
+      #     aws s3 cp src/data/pluviometro-1.txt s3://lluvias.jaimeelingeniero.es/data/pluviometro-1.txt
+      #     aws s3 cp src/data/pluviometro-2.txt s3://lluvias.jaimeelingeniero.es/data/pluviometro-2.txt
