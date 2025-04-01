@@ -1,5 +1,8 @@
 # Formato explicado en: https://lluvias.jaimeelingeniero.es/formato-fichero
 
+# ABRIL 2025 
+01/04/2025;0
+
 # MARZO 2025
 31/03/2025;0
 30/03/2025;0
