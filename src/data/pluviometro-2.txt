@@ -1,6 +1,7 @@
 # Formato explicado en: https://lluvias.jaimeelingeniero.es/formato-fichero
 
 # ABRIL 2025 
+06/04/2025;0
 05/04/2025;7;red;De 10 días de vacaciones.
 04/04/2025;0
 03/04/2025;0
