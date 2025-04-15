@@ -1,9 +1,9 @@
 # Formato explicado en: https://lluvias.jaimeelingeniero.es/formato-fichero
 
 # ABRIL 2025 
-14/04/2025;0
+14/04/2025;5 # fue un pelín más 
 13/04/2025;0
-12/04/2025;4.5 # fue un pelín más 
+12/04/2025;4.5
 11/04/2025;5.5
 10/04/2025;0
 09/04/2025;0
