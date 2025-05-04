@@ -1,12 +1,13 @@
 # Formato explicado en: https://lluvias.jaimeelingeniero.es/formato-fichero
 
-# MAYO 2025 
+# MAYO 2025
+04/05/2025;14.5;indigo;Lluvia de 4 días desde el 1 de mayo. 
 03/05/2025;0
 02/05/2025;0
 01/05/2025;0
 
 # ABRIL 2025 
-30/04/2025;2 # fue 2.3 L
+30/04/2025;2
 29/04/2025;0
 28/04/2025;0
 27/04/2025;0
