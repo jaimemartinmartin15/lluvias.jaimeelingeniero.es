@@ -51,6 +51,16 @@ jobs:
           done
       - name: Commit and push
         run: |
+          # check if there are not changes to commit and push
+          if git diff --quiet
+          then
+            echo ""
+            echo "There are no changes to commit."
+            echo ""
+            exit 0
+          fi
+
+          # commit changes
           git config --global user.name 'Github Action'
           git config --global user.email 'jaimemartinmartin15@users.noreply.github.com'
           git commit -am "Automatic update data files"
