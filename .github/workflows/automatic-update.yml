@@ -37,7 +37,7 @@ jobs:
                 sed -i "3i $month_year_comment\\n" $file && echo "Comment month year added: $month_year_comment"
               fi
               
-              if [[ ! $(grep -q $date $file) ]]
+              if [[ ! "$(grep -q $date $file)" ]]
               then
                 # if today is not already added then add default rain data line in line 4
                 sed -i "4i $default_rain_data_line" $file
