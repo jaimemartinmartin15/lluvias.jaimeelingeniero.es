@@ -16,12 +16,13 @@ jobs:
       - name: Add new line
         run: |
           months=("ENERO" "FEBRERO" "MARZO" "ABRIL" "MAYO" "JUNIO" "JULIO" "AGOSTO" "SEPTIEMBRE" "OCTUBRE" "NOVIEMBRE" "DICIEMBRE")
-          files=("src/data/pluviometro-1.txt")
+          files=("src/data/pluviometro-1.txt") # TODO add pluviometro 2
           month=$(date +%-m)
           year=$(date +%Y)
           month_name=${months[$((month - 1))]}
           date=$(date +%d/%m/%Y)
           month_year_comment="# $month_name $year"
+          default_rain_data_line="$(date +%d/%m/%Y);0"
 
           echo ""
 
@@ -29,15 +30,22 @@ jobs:
           do
               echo "Processing data file: $file"
 
-              # check if it is first day of the month, and no '# MONTH YEAR' comment is already added
+              # check if it is first day of the month   AND   no '# MONTH YEAR' comment is already added
               if [[ "$(date +%d)" -eq 1 && ! $(grep "$month_year_comment" $file) ]]
               then
                 # add the '# MONTH YEAR' comment and two white lines at line 3
                 sed -i "3i $month_year_comment\\n" $file && echo "Comment month year added: $month_year_comment"
               fi
               
-              # check if today is not already added or add default rain data line in line 4
-              ! $(grep -q $date $file) && sed -i "4i $(date +%d/%m/%Y);0" $file && echo "Default rain data line added: $(date +%d/%m/%Y);0" || echo "Found rain data line for today, skip addin it."
+              if [[ ! $(grep -q $date $file) ]]
+              then
+                # if today is not already added then add default rain data line in line 4
+                sed -i "4i $default_rain_data_line" $file
+                echo "Default rain data line added: $default_rain_data_line"
+                else
+                # if today is already added just print the existing line
+                echo "Found rain data line for today ($(grep -q $date $file)), skip addin it."
+              fi
 
               echo ""
           done
