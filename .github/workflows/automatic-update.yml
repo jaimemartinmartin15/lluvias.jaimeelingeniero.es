@@ -50,22 +50,15 @@ jobs:
               echo ""
           done
       - name: Commit and push
+        id: git-status
+        continue-on-error: true
         run: |
-          # check if there are not changes to commit and push
-          if git diff --quiet
-          then
-            echo ""
-            echo "There are no changes to commit."
-            echo ""
-            exit 0
-          fi
-
-          # commit changes
           git config --global user.name 'Github Action'
           git config --global user.email 'jaimemartinmartin15@users.noreply.github.com'
           git commit -am "Automatic update data files"
           git push
       - name: Set AWS credentials
+        if: steps.git-status.outcome == 'success'
         uses: aws-actions/configure-aws-credentials@v4
         with:
           mask-aws-account-id: true
@@ -73,6 +66,7 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: eu-south-2
       - name: Upload files
+        if: steps.git-status.outcome == 'success'
         run: |
           aws --version
           aws s3 cp src/data/pluviometro-1.txt s3://lluvias.jaimeelingeniero.es/data/pluviometro-1.txt
