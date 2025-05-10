@@ -30,14 +30,14 @@ jobs:
               echo "Processing data file: $file"
 
               # check if it is first day of the month, and no '# MONTH YEAR' comment is already added
-              # if [[ "$(date +%d)" -eq 1 && ! $(grep "$month_year_comment" $file) ]]
-              # then
+              if [[ "$(date +%d)" -eq 1 && ! $(grep "$month_year_comment" $file) ]]
+              then
                 # add the '# MONTH YEAR' comment and two white lines at line 3
                 sed -i "3i $month_year_comment\\n" $file && echo "Comment month year added: $month_year_comment"
-              # fi
+              fi
               
               # check if today is not already added or add default rain data line in line 4
-              ! $(grep -q $date $file) && sed -i "4i $(date +%d/%m/%Y);0" $file && echo "Default rain data line added: $(date +%d/%m/%Y);0"
+              ! $(grep -q $date $file) && sed -i "4i $(date +%d/%m/%Y);0" $file && echo "Default rain data line added: $(date +%d/%m/%Y);0" || echo "Found rain data line for today, skip addin it."
 
               echo ""
           done
