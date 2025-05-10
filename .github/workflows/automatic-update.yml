@@ -16,7 +16,7 @@ jobs:
       - name: Add new line
         run: |
           months=("ENERO" "FEBRERO" "MARZO" "ABRIL" "MAYO" "JUNIO" "JULIO" "AGOSTO" "SEPTIEMBRE" "OCTUBRE" "NOVIEMBRE" "DICIEMBRE")
-          files=("src/data/pluviometro-1.txt") # TODO add pluviometro 2
+          files=("src/data/pluviometro-1.txt" "src/data/pluviometro-2.txt")
           month=$(date +%-m)
           year=$(date +%Y)
           month_name=${months[$((month - 1))]}
@@ -44,7 +44,7 @@ jobs:
                 echo "Default rain data line added: $default_rain_data_line"
                 else
                 # if today is already added just print the existing line
-                echo "Found rain data line for today: $(grep $date $file). Skip addin it."
+                echo "Found rain data line for today: $(grep $date $file). Skip adding it."
               fi
 
               echo ""
