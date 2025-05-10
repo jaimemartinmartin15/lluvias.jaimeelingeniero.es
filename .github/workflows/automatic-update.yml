@@ -22,6 +22,7 @@ jobs:
           month_name=${months[$((month - 1))]}
           date=$(date +%d/%m/%Y)
           month_year_comment="# $month_name $year"
+          default_rain_data_line="$(date +%d/%m/%Y);0"
 
           echo ""
 
@@ -29,25 +30,35 @@ jobs:
           do
               echo "Processing data file: $file"
 
-              # check if it is first day of the month, and no '# MONTH YEAR' comment is already added
+              # check if it is first day of the month   AND   no '# MONTH YEAR' comment is already added
               if [[ "$(date +%d)" -eq 1 && ! $(grep "$month_year_comment" $file) ]]
               then
                 # add the '# MONTH YEAR' comment and two white lines at line 3
-                sed -i "3i $month_year_comment\ \n" $file && echo "Comment month year added"
+                sed -i "3i $month_year_comment\\n" $file && echo "Comment month year added: $month_year_comment"
               fi
               
-              # check if today is not already added or add default rain data line in line 4
-              ! grep -q $date && sed -i "4i $(date +%d/%m/%Y);0" $file && echo "Default rain data line added"
+              if [[ ! $(grep "$date" $file) ]]
+              then
+                # if today is not already added then add default rain data line in line 4
+                sed -i "4i $default_rain_data_line" $file
+                echo "Default rain data line added: $default_rain_data_line"
+                else
+                # if today is already added just print the existing line
+                echo "Found rain data line for today: $(grep $date $file). Skip adding it."
+              fi
 
               echo ""
           done
       - name: Commit and push
+        id: git-status
+        continue-on-error: true
         run: |
           git config --global user.name 'Github Action'
           git config --global user.email 'jaimemartinmartin15@users.noreply.github.com'
           git commit -am "Automatic update data files"
           git push
       - name: Set AWS credentials
+        if: steps.git-status.outcome == 'success'
         uses: aws-actions/configure-aws-credentials@v4
         with:
           mask-aws-account-id: true
@@ -55,6 +66,7 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: eu-south-2
       - name: Upload files
+        if: steps.git-status.outcome == 'success'
         run: |
           aws --version
           aws s3 cp src/data/pluviometro-1.txt s3://lluvias.jaimeelingeniero.es/data/pluviometro-1.txt
