@@ -33,7 +33,7 @@ jobs:
               # if [[ "$(date +%d)" -eq 1 && ! $(grep "$month_year_comment" $file) ]]
               # then
                 # add the '# MONTH YEAR' comment and two white lines at line 3
-                sed -i "3i $month_year_comment\ \n" $file && echo "Comment month year added: $month_year_comment"
+                sed -i "3i $month_year_comment\\n" $file && echo "Comment month year added: $month_year_comment"
               # fi
               
               # check if today is not already added or add default rain data line in line 4
