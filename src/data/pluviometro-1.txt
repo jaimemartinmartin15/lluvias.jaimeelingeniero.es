@@ -1,6 +1,7 @@
 # Formato explicado en: https://lluvias.jaimeelingeniero.es/formato-fichero
 
 # MAYO 2025
+15/05/2025;0
 14/05/2025;35;red;Cayeron 15 y 20 litros en dos tormentas con rayos y truenos por la tarde. Con granizo. En la segunda cayeron como 15 litros en 20 minutos. El desagüe iba justo y le costaba tragar. 
 13/05/2025;9.5
 12/05/2025;1
