@@ -1,5 +1,8 @@
 # Formato explicado en: https://lluvias.jaimeelingeniero.es/formato-fichero
 
+# JUNIO 2025
+01/06/2025;0
+
 # MAYO 2025
 31/05/2025;0
 30/05/2025;0
