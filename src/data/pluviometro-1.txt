@@ -1,6 +1,7 @@
 # Formato explicado en: https://lluvias.jaimeelingeniero.es/formato-fichero
 
 # JUNIO 2025
+03/06/2025;0
 02/06/2025;3 # faltaban 0.2 para llegar. 
 01/06/2025;0
 
