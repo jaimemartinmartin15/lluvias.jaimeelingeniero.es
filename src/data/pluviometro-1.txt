@@ -1,7 +1,7 @@
 # Formato explicado en: https://lluvias.jaimeelingeniero.es/formato-fichero
 
 # JUNIO 2025
-10/06/2025;0
+10/06/2025;0 # ha caído medio litro escaso
 09/06/2025;0 # llovió un poco pero había apuntado de más el lunes pasado. 
 08/06/2025;0
 07/06/2025;0
