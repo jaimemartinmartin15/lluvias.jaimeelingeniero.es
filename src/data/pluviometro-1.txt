@@ -1,7 +1,8 @@
 # Formato explicado en: https://lluvias.jaimeelingeniero.es/formato-fichero
 
 # JUNIO 2025
-23/06/2025;4;lavender;Tormenta de rayos y truenos y mucho viento.  # hay medio litro escaso más de otros días. 
+24/06/2025;21;red;Tormenta con granizo. El desagüe no daba abasto y el agua desbordó un pelín la cochera. # quedaba un poco para llegar a 21
+23/06/2025;4;lavender;Tormenta de rayos y truenos y mucho viento.
 22/06/2025;0
 21/06/2025;0
 20/06/2025;7
