@@ -2,7 +2,7 @@
 
 # JUNIO 2025
 25/06/2025;0
-24/06/2025;20
+24/06/2025;20;red;Debido al granizo y la tapa que tiene el pluviómetro, es posible que rebotara y saliera fuera, marcando hasta 4 litros menos. 
 23/06/2025;4
 22/06/2025;0
 21/06/2025;0
