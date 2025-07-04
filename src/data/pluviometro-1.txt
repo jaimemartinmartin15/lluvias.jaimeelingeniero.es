@@ -1,7 +1,7 @@
 # Formato explicado en: https://lluvias.jaimeelingeniero.es/formato-fichero
 
 # JULIO 2025
-03/07/2025;0
+03/07/2025;1.5
 02/07/2025;0
 01/07/2025;0
 
@@ -12,7 +12,7 @@
 27/06/2025;0
 26/06/2025;0
 25/06/2025;0
-24/06/2025;24;red;Tormenta con granizo. El desagüe no daba abasto y el agua desbordó un pelín la cochera. # quedaba un poco para llegar a 24
+24/06/2025;24;red;Tormenta con granizo. El desagüe no daba abasto y el agua desbordó un pelín la cochera.
 23/06/2025;4;lavender;Tormenta de rayos y truenos y mucho viento.
 22/06/2025;0
 21/06/2025;0
