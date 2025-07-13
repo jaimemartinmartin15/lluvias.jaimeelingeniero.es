@@ -1,6 +1,7 @@
 # Formato explicado en: https://lluvias.jaimeelingeniero.es/formato-fichero
 
 # JULIO 2025
+13/07/2025;0
 12/07/2025;0 # llovió algo menos de medio litro. También hay +0.25 pendientes del día 5. 
 11/07/2025;0
 10/07/2025;0
