@@ -1,6 +1,7 @@
 # Formato explicado en: https://lluvias.jaimeelingeniero.es/formato-fichero
 
 # JULIO 2025
+17/07/2025;0
 16/07/2025;0
 15/07/2025;0
 14/07/2025;0
