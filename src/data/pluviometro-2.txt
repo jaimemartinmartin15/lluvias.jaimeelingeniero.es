@@ -1,5 +1,8 @@
 # Formato explicado en: https://lluvias.jaimeelingeniero.es/formato-fichero
 
+# AGOSTO 2025
+01/08/2025;0
+
 # JULIO 2025
 31/07/2025;0
 30/07/2025;0
