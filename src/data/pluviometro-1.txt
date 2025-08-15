@@ -1,6 +1,7 @@
 # Formato explicado en: https://lluvias.jaimeelingeniero.es/formato-fichero
 
 # AGOSTO 2025
+15/08/2025;0
 14/08/2025;0
 13/08/2025;0
 12/08/2025;0 # el pluviometro tenía agua, pero no llegaba a medio litro. Era el culin
