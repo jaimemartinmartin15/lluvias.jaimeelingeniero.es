@@ -1,6 +1,7 @@
 # Formato explicado en: https://lluvias.jaimeelingeniero.es/formato-fichero
 
 # SEPTIEMBRE 2025
+22/09/2025;0
 21/09/2025;0
 20/09/2025;0
 19/09/2025;2;red;Este verano han pasado 75 días sin llover. Hoy llovió 1L y un poco, pero apunto 2L porque los días 12 de julio y 12 de agosto el pluviómetro tenía agua, aunque no llegaba ni a medio litro. El 1 de agosto también cayeron gotas, pero no se registro nada. Y también había un poquito pendiente del 5 de julio.
