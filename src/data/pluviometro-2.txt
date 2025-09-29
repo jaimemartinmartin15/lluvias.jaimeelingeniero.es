@@ -1,6 +1,7 @@
 # Formato explicado en: https://lluvias.jaimeelingeniero.es/formato-fichero
 
 # SEPTIEMBRE 2025
+29/09/2025;0
 28/09/2025;1
 27/09/2025;0
 26/09/2025;0
