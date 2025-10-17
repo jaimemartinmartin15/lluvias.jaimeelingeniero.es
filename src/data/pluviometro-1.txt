@@ -1,6 +1,7 @@
 # Formato explicado en: https://lluvias.jaimeelingeniero.es/formato-fichero
 
 # OCTUBRE 2025
+17/10/2025;0
 16/10/2025;0
 15/10/2025;0
 14/10/2025;0
