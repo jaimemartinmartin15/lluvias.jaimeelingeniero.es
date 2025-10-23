@@ -1,7 +1,7 @@
 # Formato explicado en: https://lluvias.jaimeelingeniero.es/formato-fichero
 
 # OCTUBRE 2025
-22/10/2025;0
+22/10/2025;6
 21/10/2025;0
 20/10/2025;4;pink;Han sido 21 días más sin llover. En total 106 días en los que solo cayó 3.5L. Ayer llovió muy poco, el culín del pluviometro. 
 19/10/2025;0
