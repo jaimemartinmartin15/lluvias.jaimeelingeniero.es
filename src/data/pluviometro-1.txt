@@ -1,12 +1,12 @@
 # Formato explicado en: https://lluvias.jaimeelingeniero.es/formato-fichero
 
 # NOVIEMBRE 2025
-01/11/2025;0
+01/11/2025;14
 
 # OCTUBRE 2025
 31/10/2025;0
 30/10/2025;0
-29/10/2025;0 # 0.5 L
+29/10/2025;0
 28/10/2025;5
 27/10/2025;0
 26/10/2025;0
