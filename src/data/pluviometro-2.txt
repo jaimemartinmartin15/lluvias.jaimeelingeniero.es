@@ -1,7 +1,7 @@
 # Formato explicado en: https://lluvias.jaimeelingeniero.es/formato-fichero
 
 # NOVIEMBRE 2025
-05/11/2025;0
+05/11/2025;8
 04/11/2025;0
 03/11/2025;0
 02/11/2025;0
