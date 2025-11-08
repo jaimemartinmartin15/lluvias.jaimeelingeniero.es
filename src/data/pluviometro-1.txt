@@ -1,6 +1,7 @@
 # Formato explicado en: https://lluvias.jaimeelingeniero.es/formato-fichero
 
 # NOVIEMBRE 2025
+08/11/2025;0
 07/11/2025;8 # faltaba un pelin para llegar a 8
 06/11/2025;3
 05/11/2025;10.5
