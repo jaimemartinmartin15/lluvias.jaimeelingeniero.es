@@ -1,6 +1,7 @@
 # Formato explicado en: https://lluvias.jaimeelingeniero.es/formato-fichero
 
 # NOVIEMBRE 2025
+16/11/2025;0
 15/11/2025;7
 14/11/2025;0
 13/11/2025;9;firebrick;La AEMET nos lanzó una alerta al móvil por lluvias extremas y viento.
