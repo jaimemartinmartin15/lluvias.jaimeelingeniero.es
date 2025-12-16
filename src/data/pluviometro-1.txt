@@ -1,9 +1,9 @@
 # Formato explicado en: https://lluvias.jaimeelingeniero.es/formato-fichero
 
 # DICIEMBRE 2025
-15/12/2025;0
+15/12/2025;4 # había un pelín más de 4
 14/12/2025;0
-13/12/2025;0
+13/12/2025;0 # viaje
 12/12/2025;0
 11/12/2025;0
 10/12/2025;3
