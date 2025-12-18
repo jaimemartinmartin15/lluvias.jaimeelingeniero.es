@@ -1,6 +1,7 @@
 # Formato explicado en: https://lluvias.jaimeelingeniero.es/formato-fichero
 
 # DICIEMBRE 2025
+18/12/2025;0
 17/12/2025;0
 16/12/2025;1.5
 15/12/2025;4
