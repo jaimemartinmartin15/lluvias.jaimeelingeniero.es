@@ -1,7 +1,7 @@
 # Formato explicado en: https://lluvias.jaimeelingeniero.es/formato-fichero
 
 # DICIEMBRE 2025
-20/12/2025;0
+20/12/2025;6.5;paleturquoise;Esta noche nevó. 
 19/12/2025;1
 18/12/2025;0
 17/12/2025;0
