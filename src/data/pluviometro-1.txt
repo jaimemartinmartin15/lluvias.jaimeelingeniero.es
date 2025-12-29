@@ -1,7 +1,7 @@
 # Formato explicado en: https://lluvias.jaimeelingeniero.es/formato-fichero
 
 # DICIEMBRE 2025
-28/12/2025;0
+28/12/2025;0 # 0.5
 27/12/2025;0
 26/12/2025;0
 25/12/2025;0
