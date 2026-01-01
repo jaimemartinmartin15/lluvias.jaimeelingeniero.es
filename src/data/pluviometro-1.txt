@@ -1,10 +1,10 @@
 # Formato explicado en: https://lluvias.jaimeelingeniero.es/formato-fichero
 
 # DICIEMBRE 2025
-31/12/2025;0
+31/12/2025;1;darkkhaki;Agua acumulada por nieblas y heladas. 
 30/12/2025;0
 29/12/2025;0
-28/12/2025;0 # 0.5
+28/12/2025;0
 27/12/2025;0
 26/12/2025;0
 25/12/2025;0
