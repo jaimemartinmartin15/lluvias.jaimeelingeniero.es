@@ -6,6 +6,9 @@
 02/01/2026;0
 01/01/2026;0
 
+# AÑO 2025
+xx/xx/2025;;darkred;Cosecha normal. Ningún agricultor se quejó más de la cuenta.
+
 # DICIEMBRE 2025
 31/12/2025;0
 30/12/2025;0
