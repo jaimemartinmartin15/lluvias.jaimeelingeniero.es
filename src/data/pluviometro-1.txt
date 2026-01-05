@@ -1,7 +1,7 @@
 # Formato explicado en: https://lluvias.jaimeelingeniero.es/formato-fichero
 
 # ENERO 2026
-04/01/2026;1.5;paleturquoise;Hoy ha nevado. El pluviómetro tenía 15 de nieve pero al derretirse se quedó en 1.5 L. Se espera una helada de -5° C por la noche.
+04/01/2026;2;cyan;Nevó por La tarde-noche. El pluviómetro tenía 15 y 5 de nieve pero al derretirse se quedó en 1.5 L y 0.5 L (lo miré dos veces por la helada). Por la noche heló a -7° C mínimo. 
 03/01/2026;0
 02/01/2026;0
 01/01/2026;0
