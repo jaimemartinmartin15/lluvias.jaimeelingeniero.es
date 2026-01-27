@@ -1,6 +1,7 @@
 # Formato explicado en: https://lluvias.jaimeelingeniero.es/formato-fichero
 
 # ENERO 2026
+27/01/2026;0
 26/01/2026;9 # habia un poquito mas
 25/01/2026;0
 24/01/2026;1
