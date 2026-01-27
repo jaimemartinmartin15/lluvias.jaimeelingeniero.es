@@ -1,7 +1,7 @@
 # Formato explicado en: https://lluvias.jaimeelingeniero.es/formato-fichero
 
 # ENERO 2026
-26/01/2026;0
+26/01/2026;6
 25/01/2026;1
 24/01/2026;0
 23/01/2026;4;red;Nieve.
