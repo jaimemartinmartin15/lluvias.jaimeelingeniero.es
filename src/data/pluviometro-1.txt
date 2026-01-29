@@ -1,6 +1,7 @@
 # Formato explicado en: https://lluvias.jaimeelingeniero.es/formato-fichero
 
 # ENERO 2026
+29/01/2026;0
 28/01/2026;7
 27/01/2026;15;cyan;Este día nevó bastante. Metí el pluviómetro en casa para derretir la nieve. 
 26/01/2026;9
