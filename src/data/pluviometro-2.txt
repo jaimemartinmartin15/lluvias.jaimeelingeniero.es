@@ -1,7 +1,7 @@
 # Formato explicado en: https://lluvias.jaimeelingeniero.es/formato-fichero
 
 # ENERO 2026
-31/01/2026;0
+31/01/2026;1
 30/01/2026;13;red;De dos días. Nieve y tormenta.
 29/01/2026;0
 28/01/2026;24;red;Amaneció nevado con poca cantidad. 
