@@ -1,6 +1,7 @@
 # Formato explicado en: https://lluvias.jaimeelingeniero.es/formato-fichero
 
 # FEBRERO 2026
+05/02/2026;0
 04/02/2026;18;red;Días 3 y 4.
 03/02/2026;0
 02/02/2026;0
