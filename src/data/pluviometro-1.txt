@@ -1,13 +1,13 @@
 # Formato explicado en: https://lluvias.jaimeelingeniero.es/formato-fichero
 
 # FEBRERO 2026
-04/02/2026;0
+04/02/2026;16 # no llegaba a 16. Había 15.8
 03/02/2026;5
 02/02/2026;12
 01/02/2026;0
 
 # ENERO 2026
-31/01/2026;1 # habia casi 1.5,no llegaba al medio
+31/01/2026;1
 30/01/2026;6.5
 29/01/2026;8
 28/01/2026;7
