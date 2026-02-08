@@ -1,6 +1,7 @@
 # Formato explicado en: https://lluvias.jaimeelingeniero.es/formato-fichero
 
 # FEBRERO 2026
+08/02/2026;0
 07/02/2026;15
 06/02/2026;3
 05/02/2026;16;red;Ha llovido tanto que el terreno ya no absorbe más agua. El solar del lado de la nave se ha encharcado y el agua se ha filtrado por la pared. Hemos sacado múltiples cubos de agua de la tienda, llenándolo con un cogedor. También hemos empujado el agua con cepillos y el secalunas de la furgoneta. Como seguía filtrándose, papá ha abierto un camino a la calle para que se desencharcara. Corría mucho agua. También por suerte, hemos encontrado un desagüe por el que evacuar el agua entre la nave y la pared de adobe. 
