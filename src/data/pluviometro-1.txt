@@ -20,6 +20,7 @@
 03/02/2026;5
 02/02/2026;12
 01/02/2026;0
+xx/02/2026;;dodgerblue;A final del mes pasado y principio de este, vinieron borrasca tras borrasca y además hacía mucho viento. Hubo inundaciones en Andalucía y otras zonas de España.
 
 # ENERO 2026
 31/01/2026;1
