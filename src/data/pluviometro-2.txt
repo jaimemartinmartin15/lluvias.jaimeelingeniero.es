@@ -1,6 +1,7 @@
 # Formato explicado en: https://lluvias.jaimeelingeniero.es/formato-fichero
 
 # MARZO 2026
+31/03/2026;0
 30/03/2026;0
 28/03/2026;0
 27/03/2026;0
