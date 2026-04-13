@@ -1,6 +1,7 @@
 # Formato explicado en: https://lluvias.jaimeelingeniero.es/formato-fichero
 
 # ABRIL 2026
+13/04/2026;0
 12/04/2026;0
 11/04/2026;1;brown;Lluvia con barro.
 10/04/2026;0
