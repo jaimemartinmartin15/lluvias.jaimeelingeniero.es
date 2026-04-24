@@ -1,7 +1,7 @@
 # Formato explicado en: https://lluvias.jaimeelingeniero.es/formato-fichero
 
 # ABRIL 2026
-24/04/2026;0
+24/04/2026;10
 23/04/2026;0
 22/04/2026;0
 21/04/2026;0
@@ -25,6 +25,7 @@
 03/04/2026;0
 02/04/2026;0
 01/04/2026;0
+xx/04/2026;;red;El día 19 se rompió el pluviómetro por lo reseco que estaba el plástico por causa del sol. El martes instalé el nuevo. Entre medias lluvió, pero fueron cuatro gotas. 
 
 # MARZO 2026
 31/03/2026;0
