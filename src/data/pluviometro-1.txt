@@ -1,6 +1,7 @@
 # Formato explicado en: https://lluvias.jaimeelingeniero.es/formato-fichero
 
 # ABRIL 2026
+25/04/2026;0
 24/04/2026;10
 23/04/2026;0
 22/04/2026;0
