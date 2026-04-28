@@ -1,6 +1,7 @@
 # Formato explicado en: https://lluvias.jaimeelingeniero.es/formato-fichero
 
 # ABRIL 2026
+28/04/2026;0
 27/04/2026;0
 26/04/2026;0
 25/04/2026;12;lightblue;Tormenta de rayos y truenos potentes.
