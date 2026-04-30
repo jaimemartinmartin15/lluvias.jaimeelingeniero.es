@@ -1,6 +1,7 @@
 # Formato explicado en: https://lluvias.jaimeelingeniero.es/formato-fichero
 
 # ABRIL 2026
+30/04/2026;0
 29/04/2026;27;red;Día de tormenta.
 28/04/2026;0
 27/04/2026;0
