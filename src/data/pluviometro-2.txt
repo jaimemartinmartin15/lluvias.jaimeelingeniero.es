@@ -1,5 +1,8 @@
 # Formato explicado en: https://lluvias.jaimeelingeniero.es/formato-fichero
 
+# MAYO 2026
+01/05/2026;0
+
 # ABRIL 2026
 30/04/2026;0
 29/04/2026;0
