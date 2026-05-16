@@ -1,6 +1,7 @@
 # Formato explicado en: https://lluvias.jaimeelingeniero.es/formato-fichero
 
 # MAYO 2026
+16/05/2026;0
 15/05/2026;0
 14/05/2026;0
 13/05/2026;13
