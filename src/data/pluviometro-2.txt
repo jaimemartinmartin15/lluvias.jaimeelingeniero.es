@@ -1,6 +1,7 @@
 # Formato explicado en: https://lluvias.jaimeelingeniero.es/formato-fichero
 
 # JUNIO 2026
+16/06/2026;0
 15/06/2026;0
 14/06/2026;3;red;Pequeña tormenta. 
 13/06/2026;0
