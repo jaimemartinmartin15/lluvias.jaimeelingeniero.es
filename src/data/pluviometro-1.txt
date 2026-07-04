@@ -1,6 +1,7 @@
 # Formato explicado en: https://lluvias.jaimeelingeniero.es/formato-fichero
 
 # JULIO 2026
+04/07/2026;0
 03/07/2026;0
 02/07/2026;0
 01/07/2026;0
