@@ -1,6 +1,7 @@
 # Formato explicado en: https://lluvias.jaimeelingeniero.es/formato-fichero
 
 # AGOSTO 2026
+30/08/2026;0
 29/08/2026;0
 28/08/2026;0
 27/08/2026;0
