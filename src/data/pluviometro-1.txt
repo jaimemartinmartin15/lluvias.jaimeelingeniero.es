@@ -1,6 +1,7 @@
 # Formato explicado en: https://lluvias.jaimeelingeniero.es/formato-fichero
 
 # OCTUBRE 2026
+03/10/2026;0
 02/10/2026;10
 01/10/2026;0
 
