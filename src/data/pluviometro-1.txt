@@ -1,9 +1,9 @@
 # Formato explicado en: https://lluvias.jaimeelingeniero.es/formato-fichero
 
 # NOVIEMBRE 2026
-16/11/2026;0
+16/11/2026;0 # acumulado pendiente 0.6L
 15/11/2026;0
-14/11/2026;1 # eran 1.2 o 1.3 L
+14/11/2026;1
 13/11/2026;1
 12/11/2026;0
 11/11/2026;16.5
