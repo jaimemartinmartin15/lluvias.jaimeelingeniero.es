@@ -1,6 +1,7 @@
 # Formato explicado en: https://lluvias.jaimeelingeniero.es/formato-fichero
 
 # NOVIEMBRE 2026
+20/11/2026;0
 19/11/2026;0
 18/11/2026;15
 17/11/2026;0
