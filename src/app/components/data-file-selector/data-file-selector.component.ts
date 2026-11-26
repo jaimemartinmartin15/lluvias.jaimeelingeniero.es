@@ -3,7 +3,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { AfterViewInit, Component, ElementRef, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { finalize, map, tap } from 'rxjs';
-import { COMMENT, DEFAULT_DATA_FILE, LINE_SEPARATOR } from '../../constants/data-file';
+import { COMMENT, DATE_RANGE_SEPARATOR, DATE_SEPARATOR, DEFAULT_DATA_FILE, LINE_SEPARATOR } from '../../constants/data-file';
 import { LOCAL_STORE_KEYS } from '../../constants/local-storage-keys';
 import { FileLine } from '../../models/file-line';
 import { TrashCanSvgComponent } from '../../svg/generated/trash-can.component';
@@ -41,30 +41,38 @@ export class DataFileSelectorComponent implements OnInit, AfterViewInit {
   @Output()
   public loadNewDataFile: EventEmitter<FileLine[]> = new EventEmitter();
 
-  public constructor(private readonly activatedRoute: ActivatedRoute, private readonly http: HttpClient) {}
+  public constructor(
+    private readonly activatedRoute: ActivatedRoute,
+    private readonly http: HttpClient,
+  ) {}
 
   public ngOnInit() {
     this.dataFiles = JSON.parse(localStorage.getItem(LOCAL_STORE_KEYS.DATA_FILES) ?? JSON.stringify([DEFAULT_DATA_FILE]));
     const dataFileQueryParam = this.getDataFileQueryParam();
-    this.selectedDataFile = dataFileQueryParam ?? JSON.parse(localStorage.getItem(LOCAL_STORE_KEYS.DEFAULT_DATA_FILE) ?? JSON.stringify(this.dataFiles[0]));
+    this.selectedDataFile =
+      dataFileQueryParam ?? JSON.parse(localStorage.getItem(LOCAL_STORE_KEYS.DEFAULT_DATA_FILE) ?? JSON.stringify(this.dataFiles[0]));
 
     // add new data file to the list if:
     //  - data file is correct in the url
     //  - query param indicates it
     //  - there is no already an alias with same name
-    if(dataFileQueryParam && this.activatedRoute.snapshot.queryParams['guardar'] === 'si' && !this.dataFiles.find(df => df.alias === this.selectedDataFile.alias)) {
+    if (
+      dataFileQueryParam &&
+      this.activatedRoute.snapshot.queryParams['guardar'] === 'si' &&
+      !this.dataFiles.find((df) => df.alias === this.selectedDataFile.alias)
+    ) {
       this.dataFiles.push(dataFileQueryParam);
       localStorage.setItem(LOCAL_STORE_KEYS.DATA_FILES, JSON.stringify(this.dataFiles));
     }
 
     this.selectDataFile(this.selectedDataFile);
   }
-  
+
   private getDataFileQueryParam(): DataFile | undefined {
     const alias = this.activatedRoute.snapshot.queryParams['alias'] || 'anónimo';
     const url = this.activatedRoute.snapshot.queryParams['url'];
 
-    return url ? {alias, url} : undefined;
+    return url ? { alias, url } : undefined;
   }
 
   public ngAfterViewInit(): void {
@@ -125,18 +133,43 @@ export class DataFileSelectorComponent implements OnInit, AfterViewInit {
             .map((l) => l.substring(0, l.indexOf(COMMENT) !== -1 ? l.indexOf(COMMENT) : l.length).trim()) // Remove comments and spaces in lines that contain data
             .map((l) => {
               const [date, liters, bulletColor, popUpContent] = l.split(LINE_SEPARATOR);
-              return {
-                date: date.trim(),
-                liters: liters.trim(),
-                bulletColor: bulletColor?.trim() ?? '',
-                popUpContent: popUpContent?.trim() ?? '',
-              };
+
+              // if date is a range, convert the range into single dates
+              if (date.includes(DATE_RANGE_SEPARATOR)) {
+                const [startRangeDate, endRangeDate] = date.split(DATE_RANGE_SEPARATOR);
+
+                const [startRangeDay, startRangeMonth, startRangeYear] = startRangeDate.split(DATE_SEPARATOR).map(Number);
+                const startDate = new Date(startRangeYear, startRangeMonth - 1, startRangeDay);
+
+                const [endRangeDay, endRangeMonth, endRangeYear] = endRangeDate.split(DATE_SEPARATOR).map(Number);
+                const endDate = new Date(endRangeYear, endRangeMonth - 1, endRangeDay);
+
+                const parsedLines = [];
+                for (let iDate = new Date(startDate); iDate <= endDate; iDate.setDate(iDate.getDate() + 1)) {
+                  parsedLines.push({
+                    date: `${String(iDate.getDate()).padStart(2, '0')}/${String(iDate.getMonth() + 1).padStart(2, '0')}/${iDate.getFullYear()}`,
+                    liters: liters.trim(),
+                    bulletColor: bulletColor?.trim() ?? '',
+                    popUpContent: popUpContent?.trim() ?? '',
+                  });
+                }
+                return parsedLines;
+              } else {
+                // just single date
+                return {
+                  date: date.trim(),
+                  liters: liters.trim(),
+                  bulletColor: bulletColor?.trim() ?? '',
+                  popUpContent: popUpContent?.trim() ?? '',
+                };
+              }
             })
+            .flatMap((line) => line),
         ),
         tap((fileLines) => this.loadNewDataFile.emit(fileLines)),
         tap(() => localStorage.setItem(LOCAL_STORE_KEYS.DEFAULT_DATA_FILE, JSON.stringify(this.selectedDataFile))),
         tap(() => this.closeCollapsible()),
-        finalize(() => this.isLoading.emit(false))
+        finalize(() => this.isLoading.emit(false)),
       )
       .subscribe({
         next: () => this.error.emit(false),
