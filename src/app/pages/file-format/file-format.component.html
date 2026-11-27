@@ -1,9 +1,7 @@
 <section class="add-file-section">
   <h1>Añadir un fichero de datos</h1>
 
-  <p>
-    Para añadir un fichero al menú de la aplicación necesitas dos cosas:
-  </p>
+  <p>Para añadir un fichero al menú de la aplicación necesitas dos cosas:</p>
 
   <dl>
     <dt>Un alias</dt>
@@ -13,16 +11,10 @@
     </dd>
 
     <dt>Una URL</dt>
-    <dd>
-      La ubicación del archivo a descargar que contiene los datos. No añadas query parameters.
-    </dd>
-
+    <dd>La ubicación del archivo a descargar que contiene los datos. No añadas query parameters.</dd>
   </dl>
 
-  <p>
-    Introduce el alias y la URL separados por dos puntos en el campo habilitado.
-    Por ejemplo:
-  </p>
+  <p>Introduce el alias y la URL separados por dos puntos en el campo habilitado. Por ejemplo:</p>
 
   <pre><strong class="alias">mi patio</strong><strong class="separator">:</strong><strong class="url">https://example.com/mi-pluviometro.txt</strong></pre>
 </section>
@@ -30,13 +22,9 @@
 <section>
   <h1>Formato del fichero de datos</h1>
 
-  <p>
-    El archivo descargado es un simple archivo de texto (<strong>.txt</strong>) con varias líneas de datos.
-  </p>
+  <p>El archivo descargado es un simple archivo de texto (<strong>.txt</strong>) con varias líneas de datos.</p>
 
-  <p>
-    Una linea puede ser de tres tipos:
-  </p>
+  <p>Una linea puede ser de tres tipos:</p>
 
   <dl>
     <dt>Comentario</dt>
@@ -50,15 +38,15 @@
   </dl>
 
   <p>
-    Cada línea puede contener espacios en blanco o tabuladores al principio o al final, pero se ignoran. Todos los
-    caracteres después del símbolo <strong>#</strong> en una línea se consideran comentarios y también se ignoran.
+    Cada línea puede contener espacios en blanco o tabuladores al principio o al final, pero se ignoran. Todos los caracteres después del símbolo
+    <strong>#</strong> en una línea se consideran comentarios y también se ignoran.
   </p>
 
   <h2>Formato de linea de datos</h2>
 
   <p>
-    Una linea de datos se compone de cuatro campos separados con un punto y coma (<strong class="separator">;</strong>),
-    y un posible comentario al final:
+    Una linea de datos se compone de cuatro campos separados con un punto y coma (<strong class="separator">;</strong>), y un posible comentario al
+    final:
   </p>
 
   <pre>fecha <strong class="separator">;</strong> litros <strong class="separator">;</strong> color <strong class="separator">;</strong> mensaje # comentario</pre>
@@ -71,65 +59,52 @@
     <dl>
       <dt>Día: dd<strong class="separator">/</strong>mm<strong class="separator">/</strong>yyyy</dt>
       <dd>
-        Este formato está destinado para el gráfico por días. Se especifica tanto el día, como el mes, como el año
-        separados por barras.
+        <p>Este formato está destinado para el gráfico por días. Se especifica tanto el día, como el mes, como el año separados por barras.</p>
+
+        <p>
+          En lugar de un solo día, también se puede especificar un rango de días separando dos fechas con un guion:
+          <span class="no-break">
+            dd<strong class="separator">/</strong>mm<strong class="separator">/</strong>yyyy
+            <strong class="separator">-</strong>
+            dd<strong class="separator">/</strong>mm<strong class="separator">/</strong>yyyy</span
+          >. Ambas fechas están incluidas en el rango. Los litros y mensajes especificados en esta línea, se repiten para todos los días del rango.
+        </p>
       </dd>
 
       <dt>Mes: <strong>xx</strong><strong class="separator">/</strong>mm<strong class="separator">/</strong>yyyy</dt>
-      <dd>
-        Este formato está destinado para el gráfico por meses. Sólo se especifica el mes y el año. El día son
-        literalmente dos x.
-      </dd>
+      <dd>Este formato está destinado para el gráfico por meses. Sólo se especifica el mes y el año. El día son literalmente dos x.</dd>
 
-      <dt>
-        Año: <strong>xx</strong><strong class="separator">/</strong><strong>xx</strong><strong
-          class="separator">/</strong>yyyy
-      </dt>
-      <dd>
-        Este formato está destinado para el gráfico por años. Sólo se especifica el año. El día y el mes son
-        literalmente dos x.
-      </dd>
+      <dt>Año: <strong>xx</strong><strong class="separator">/</strong><strong>xx</strong><strong class="separator">/</strong>yyyy</dt>
+      <dd>Este formato está destinado para el gráfico por años. Sólo se especifica el año. El día y el mes son literalmente dos x.</dd>
     </dl>
 
     <p>
-      Si no se especifican datos por año, se calculan automáticamente a partir de los datos por meses. Si no se
-      especifican datos por meses, se calculan automáticamente a partir de los datos por días.
+      Si no se especifican datos por año, se calculan automáticamente a partir de los datos por meses. Si no se especifican datos por meses, se
+      calculan automáticamente a partir de los datos por días.
     </p>
 
-    <p>
-      La media de lluvia de los meses de un año se calcula con los datos por meses.
-    </p>
+    <p>La media de lluvia de los meses de un año se calcula con los datos por meses.</p>
   </section>
 
   <section>
     <h3>Litros</h3>
 
-    <p>
-      Los litros es un número con la cantidad total que ha llovido para un día, un mes o un año.
-    </p>
+    <p>Los litros es un número con la cantidad total que ha llovido para un día, un mes o un año.</p>
 
     <p>
-      Si el campo se deja en blanco, se entiende que el objetivo es simplemente establecer una notificación. En tal
-      caso, los litros se siguen calculando a partir de los datos por meses o por días.
+      Si el campo se deja en blanco, se entiende que el objetivo es simplemente establecer una notificación. En tal caso, los litros se siguen
+      calculando a partir de los datos por meses o por días.
     </p>
 
-    <p>
-      Si se indican los litros, estos serán los que aparezcan en el gráfico, sobreescribiendo posibles datos
-      calculados a partir de meses y días.
-    </p>
+    <p>Si se indican los litros, estos serán los que aparezcan en el gráfico, sobreescribiendo posibles datos calculados a partir de meses y días.</p>
   </section>
 
   <section>
     <h3>Color y mensaje</h3>
 
-    <p>
-      El tercer y cuarto campo están relacionados con las notificaciones y son opcionales, pero si aparece uno debe
-      aparecer el otro.
-    </p>
+    <p>El tercer y cuarto campo están relacionados con las notificaciones y son opcionales, pero si aparece uno debe aparecer el otro.</p>
 
-    <p>
-      El color se especifica mediante un nombre de color HTML.
-    </p>
+    <p>El color se especifica mediante un nombre de color HTML.</p>
 
     <p>
       El mensaje es el texto que aparecerá en el diálogo al pulstar la notificación. No puede contener el separador
@@ -141,9 +116,8 @@
     <h3>Comentario</h3>
 
     <p>
-      Al final del todo, como ya se ha indicado, podemos poner un comentario que es ignorado. Es sólo para información
-      de
-      quien mantiene el fichero de datos.
+      Al final del todo, como ya se ha indicado, podemos poner un comentario que es ignorado. Es sólo para información de quien mantiene el fichero de
+      datos.
     </p>
   </section>
 </section>
@@ -152,26 +126,19 @@
   <h1>Notificaciones</h1>
 
   <p>
-    Las notificaciones son opcionales. Si no se ponen, no es necesario añadir los separadores en la linea de datos.
-    Existen tres lugares en los que se puede poner una notificación.
+    Las notificaciones son opcionales. Si no se ponen, no es necesario añadir los separadores en la linea de datos. Existen tres lugares en los que se
+    puede poner una notificación.
   </p>
 
   <dl>
     <dt>Por día</dt>
-    <dd>
-      Aparece en el gráfico por días en un día concreto. El formato de fecha que hay que usar es por día.
-    </dd>
+    <dd>Aparece en el gráfico por días en un día concreto. El formato de fecha que hay que usar es por día.</dd>
 
     <dt>Por mes</dt>
-    <dd>
-      Aparece en el título del gráfico por días junto al nombre del mes y el año. El formato de fecha que hay que usar
-      es por mes.
-    </dd>
+    <dd>Aparece en el título del gráfico por días junto al nombre del mes y el año. El formato de fecha que hay que usar es por mes.</dd>
 
     <dt>Por año</dt>
-    <dd>
-      Aparece en el título del gráfico por meses junto al año. El formato de fecha que hay que usar es por año.
-    </dd>
+    <dd>Aparece en el título del gráfico por meses junto al año. El formato de fecha que hay que usar es por año.</dd>
   </dl>
 </section>
 
@@ -179,24 +146,23 @@
   <h1>Alertas</h1>
 
   <p>
-    Si han pasado 7 días o más sin llover, se mostrará automáticamente una alerta cuyo color depende de la cantidad de
-    días sin llover. Esta alerta sólo se muestra en el mes y año actual.
+    Si han pasado 7 días o más sin llover, se mostrará automáticamente una alerta cuyo color depende de la cantidad de días sin llover. Esta alerta
+    sólo se muestra en el mes y año actual.
   </p>
 
   <p>
-    Para calcular el número de días sin llover, se toma la fecha más actual anotada en el fichero de datos y se cuentan
-    los días (líneas en el fichero) hacia atrás en el tiempo hasta que hay lluvia en un día.
+    Para calcular el número de días sin llover, se toma la fecha más actual anotada en el fichero de datos y se cuentan los días (líneas en el
+    fichero) hacia atrás en el tiempo hasta que hay lluvia en un día.
   </p>
 </section>
 
 <section>
   <h1>Ejemplo</h1>
 
-  <p>
-    A continuación dejo un ejemplo de fichero de datos con algún comentario:
-  </p>
+  <p>A continuación dejo un ejemplo de fichero de datos con algún comentario:</p>
 
-  <pre class="file-example"># Fichero de datos de la lluvia de mi patio: mi-pluviometro.txt
+  <pre class="file-example">
+# Fichero de datos de la lluvia de mi patio: mi-pluviometro.txt
 
 02/11/2023;2 # Indica que el 2 de noviembre de 2023 llovió 2 litros.
 
@@ -219,24 +185,23 @@ xx/02/2020;;green;Este me ha helado mucho.
 # La lluvia del año NO se calcula a partir de la lluvia de los meses.
 05/07/2020;3
 xx/07/2020;5;orange;Este mes ha hecho muchísimo calor.
-xx/xx/2020;36</pre>
+xx/xx/2020;36
+
+# Los días 28, 29 y 30 de noviembre de 2024 y los días 1, 2 y 3 de diciembre de 2024 no llovió.
+28/11/2024-3/12/2024;0
+</pre
+  >
 </section>
 
 <section>
   <h1>Parámetros de consulta</h1>
 
-  <p>
-    Puedes añadir parámetros de consulta en la url cuando la compartas con alguien. A continuación se indica que hace
-    cada uno de ellos.
-  </p>
+  <p>Puedes añadir parámetros de consulta en la url cuando la compartas con alguien. A continuación se indica que hace cada uno de ellos.</p>
 
   <dl>
     <dt>año</dt>
     <dd>
-      <p>
-        Este parámetro carga por defecto el año indicado. Si no se indica o el valor no es un número, se carga el año
-        actual.
-      </p>
+      <p>Este parámetro carga por defecto el año indicado. Si no se indica o el valor no es un número, se carga el año actual.</p>
 
       <pre>Ejemplo: <span class="url">https://lluvias.jaimeelingeniero.es/<span class="query-param">?año=2022</span></span></pre>
     </dd>
@@ -244,32 +209,26 @@ xx/xx/2020;36</pre>
     <dt>mes</dt>
     <dd>
       <p>
-        Este parámetro carga por defecto el mes indicado. Si no se indica o el valor no es un número, se carga el mes
-        actual. Si el mes es menor que 1, se carga enero, y si el mes es mayor que 12 se carga diciembre.
+        Este parámetro carga por defecto el mes indicado. Si no se indica o el valor no es un número, se carga el mes actual. Si el mes es menor que
+        1, se carga enero, y si el mes es mayor que 12 se carga diciembre.
       </p>
 
       <pre>Ejemplo: <span class="url">https://lluvias.jaimeelingeniero.es/<span class="query-param">?mes=2</span></span></pre>
 
-      <p>
-        Carga el mes de febrero.
-      </p>
+      <p>Carga el mes de febrero.</p>
     </dd>
 
     <dt>alias</dt>
-    <dd>
-      Este parámetro permite especificar el nombre de un nuevo fichero de datos a cargar.
-    </dd>
+    <dd>Este parámetro permite especificar el nombre de un nuevo fichero de datos a cargar.</dd>
 
     <dt>url</dt>
-    <dd>
-      Este parámetro permite especificar la ruta del fichero de datos a cargar por defecto.
-    </dd>
+    <dd>Este parámetro permite especificar la ruta del fichero de datos a cargar por defecto.</dd>
 
     <dt>guardar</dt>
     <dd>
       <p>
-        Este parámetro permite guardar el fichero de datos especificado en la url en la lista de ficheros disponibles.
-        Para ello el valor debe ser <strong>si</strong>.
+        Este parámetro permite guardar el fichero de datos especificado en la url en la lista de ficheros disponibles. Para ello el valor debe ser
+        <strong>si</strong>.
       </p>
 
       <pre>Ejemplo: <span class="url">https://lluvias.jaimeelingeniero.es/<span class="query-param">?alias=Mi alias&url=datos/mi-pluviometro.txt&guardar=si</span></span></pre>
@@ -277,6 +236,4 @@ xx/xx/2020;36</pre>
   </dl>
 </section>
 
-<a class="close-button" routerLink="/" queryParamsHandling="preserve" data-test-id="back-button">
-  <span>&#x21A4;</span> Entendido
-</a>
+<a class="close-button" routerLink="/" queryParamsHandling="preserve" data-test-id="back-button"> <span>&#x21A4;</span> Entendido </a>
