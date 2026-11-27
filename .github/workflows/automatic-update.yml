@@ -12,7 +12,7 @@ jobs:
     timeout-minutes: 5
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
       - name: Add new line
         run: |
           months=("ENERO" "FEBRERO" "MARZO" "ABRIL" "MAYO" "JUNIO" "JULIO" "AGOSTO" "SEPTIEMBRE" "OCTUBRE" "NOVIEMBRE" "DICIEMBRE")
@@ -59,7 +59,7 @@ jobs:
           git push
       - name: Set AWS credentials
         if: steps.git-status.outcome == 'success'
-        uses: aws-actions/configure-aws-credentials@v4
+        uses: aws-actions/configure-aws-credentials@v6
         with:
           mask-aws-account-id: true
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
