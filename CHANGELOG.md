@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 1.6.0
+
+Support date ranges in data files.
+
 ## 1.5.0
 
 Added date to pop up.
